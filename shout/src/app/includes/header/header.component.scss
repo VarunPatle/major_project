@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+.navbar-brand{
+  font-family: 'Pacifico', cursive;
+  color: rgb(218, 156, 41);
+  font-size: 22px;
+}
+.navbar-brand p{
+  font-size: 13px;
+  color: rgb(66, 56, 56);
+  font-family: 'Pacifico', cursive;
+}
+
+a{
+  color: rgb(66, 56, 56);
+}
+*{
+  font-family: 'Poppins', sans-serif;
+}
+img{
+  border-radius: 50%;
+}
