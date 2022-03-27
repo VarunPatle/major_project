@@ -1,0 +1,51 @@
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../../assets/background.jpg");
+
+  /* TODO: MODULE_LAYOUT */
+  /* 1. Set a specific height. */
+  /* 2. Position and center the image to scale nicely on all screens. */
+  width: 100wh;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  color: whitesmoke;
+
+}
+
+.hero-subheading {
+  font-size: 24px;
+  font-weight: 100;
+}
+.hero-input {
+  width: 80%;
+  height: 50px;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+}
+.container{
+  padding: 20px 0px;
+}
+.tile {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+}
+.tile img{
+  width: 100%;
+  object-fit: cover;
+}
+.tile img:hover {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  filter: brightness(50%);
+  cursor: pointer;
+  transform: scale(1.1);
+}

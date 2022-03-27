@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+      <div class="display-6">Welcome</div>
+    </div>
+    <div class="card-body">
+      <form #userForm="ngForm" (ngSubmit)="loginUser(userForm)">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" class="form-control" name="email" id="email" ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" ngModel>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="card-footer text-right">
+     <small><a routerLink="../forgot-password">Forgot Password</a></small>
+    </div>
+  </div>
+</div>
+
