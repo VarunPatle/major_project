@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './includes/header/header.component';
@@ -12,6 +11,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { LoginComponent } from './pages/login/login.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UsersComponent } from './pages/users/users.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     ContactUsComponent,
     RegisterComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
