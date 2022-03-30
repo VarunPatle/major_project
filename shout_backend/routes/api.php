@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 // Route::resource('users',UserController::class);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users{id}', [UserController::class, 'show']);
+Route::post('/users', [UserController::class, 'store']);
 Route::get('/users/search/{name}', [UserController::class, 'search']);
 
 
@@ -26,7 +27,6 @@ Route::get('/users/search/{name}', [UserController::class, 'search']);
 
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/users', [UserController::class, 'store']);
     Route::put('/users{id}', [UserController::class, 'update']);
     Route::delete('/users{id}', [UserController::class, 'destroy']);
 });
