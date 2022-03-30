@@ -24,7 +24,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return User::create($request->all());
+        $user = User::where('email', $request['email'])->first();
+        if($user){
+            $response['status'] = 0;
+            $response['message'] = 'Eamil already exists';
+            $response['code'] = 409;
+        }else{
+            $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'password' => bcrypt($request->password),
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'city' => $request->city
+            ]);
+        $response['status'] = 1;
+        $response['message'] = 'User created successfully';
+        $response['code'] = 200;
+        }
+
+
+
+        return response()->json($response);
+
     }
 
     /**
