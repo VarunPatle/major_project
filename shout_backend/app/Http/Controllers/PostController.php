@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\post;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,33 +12,40 @@ class PostController extends Controller
     {
         return Post::all();
     }
-    // public function store(Request $request)
-    // {
-    //     return Post::create($request->all());
-    // }
-    
-  
+    public function store(Request $request)
+    {
+        return Post::create($request->all());
+    }
+
+
     public function destroy($id)
     {
-        return post::destroy($id);
+        return Post::destroy($id);
     }
+    public function show($id)
+    {
+        return Post::find($id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->update($request->all());
+        return $post;
+    }
+
+
+    // search for a name
     public function search($name){
-        return post::where('name', 'like', '%'.$name.'%')->get();
+        return Post::where('name', 'like', '%'.$name.'%')->get();
     }
-    public function create(){
-        $photos = post::all();
-        return view('post',compact('photos'));
-    }
-    public function store(Request $request){
-        // $size=$request->file('postContent')->getSize();
-        $name=$request->file('postContent')->getClientOriginalName();
-        return $name;
-        $request->file('postContent')->storeAs('public/images/',$name);
-        $post = new Post();
-        $post->name = $name;
-        // $post->size = $size;
-        $post->save();
-        return redirect()->back();
-    }
+
 
 }

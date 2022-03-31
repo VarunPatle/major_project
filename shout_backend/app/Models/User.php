@@ -10,18 +10,23 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Model
 {
     use HasFactory, HasApiTokens;
-    public $timestamps = false;
-    protected $primaryKey = 'userId';
     protected $fillable = [
         'name',
         'email',
         'dob',
         'password',
         'gender',
-        'phone',
         'city'
     ];
+    public function getPosts(){
+        return $this->hasMany('App\Models\Post');
+    }
 
+    public function friends(){
+        return $this->belongsToMany('App\Models\User',table: 'friends', foreignPivotKey: 'user_id', relatedPivotKey: 'friend_id');
+    }
+
+    
 }
 
 

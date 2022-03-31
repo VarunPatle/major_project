@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Friend;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -89,5 +91,28 @@ class UserController extends Controller
     // search for a name
     public function search($name){
         return User::where('name', 'like', '%'.$name.'%')->get();
+    }
+
+    public function getPostsByUser($id){
+        return User::find($id)->getPosts;
+    }
+
+    public function getFriendsByUser($id){
+        // $ids = User::find($id)->getFriends;
+        $posts = DB::table('posts')
+        ->join('friends', 'friends.friend_id', '=', 'posts.user_id')
+        ->join('users', 'friends.user_id', '=', 'users.id')
+        ->where('users.id', '=', $id)
+        ->get();
+
+    return $posts;
+
+    }
+    // friends
+    public function makeFriend(Request $request, $id){
+        return Friend::create([
+            'user_id' => $id,
+            'friend_id' => $request->friend_id
+        ]);
     }
 }

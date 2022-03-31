@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('friends', function (Blueprint $table) {
-            $table->id('friendsId');
-            $table->integer('userId');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->binary('image')->nullable();
+            $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
 
-            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 };

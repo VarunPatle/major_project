@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comments extends Model
+class Friend extends Model
 {
-    use HasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'commentId';
+    use HasFactory;
     protected $fillable = [
-        'commentDate',
-        'postId',
-        'CommentedUserId',
-        'commentContent'
+        'user_id', 'friend_id', 'status'
     ];
-
 }
