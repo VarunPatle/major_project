@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +30,23 @@
       <div *ngIf="(submitted || PostData['username'].touched) && PostData['username'].invalid">
         <div *ngIf="PostData['username'].errors && PostData['username'].errors['required']">
         <label><h6>Enter your Mail-Id.</h6></label>
+=======
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+      <div class="display-6">Welcome</div>
+    </div>
+    <div class="card-body">
+      <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" class="form-control" name="email" id="email" ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" ngModel>
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
         </div>
       </div><br>
     <div class="form-group ">

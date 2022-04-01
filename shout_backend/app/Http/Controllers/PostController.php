@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+<<<<<<< HEAD
+=======
+use App\Models\User;
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -48,4 +52,8 @@ class PostController extends Controller
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 }

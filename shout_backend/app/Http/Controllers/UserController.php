@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+<<<<<<< HEAD
+=======
+use App\Models\Post;
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 use App\Models\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -97,6 +101,7 @@ class UserController extends Controller
         return User::find($id)->getPosts;
     }
 
+<<<<<<< HEAD
     public function getFriendsByUser($id){
         // $ids = User::find($id)->getFriends;
         $posts = DB::table('posts')
@@ -108,6 +113,18 @@ class UserController extends Controller
     return $posts;
 
     }
+=======
+    // public function getFriendsByUser($id){
+    //     // $ids = User::find($id)->getFriends;
+    //     $posts = DB::table('posts')
+    //     ->join('friends', 'friends.friend_id', '=', 'posts.user_id')
+    //     ->join('users', 'friends.user_id', '=', 'users.id')
+    //     ->where('users.id', '=', $id)
+    //     ->get();
+
+    // return $posts;
+    // }
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
     // friends
     public function makeFriend(Request $request, $id){
         return Friend::create([
@@ -115,4 +132,18 @@ class UserController extends Controller
             'friend_id' => $request->friend_id
         ]);
     }
+<<<<<<< HEAD
+=======
+
+    public function getFriendsByUser($id){
+        return User::find($id)->friends;
+    }
+
+    public function getFriendsPosts($id){
+        $friends = User::find($id)->friends;
+        $user_friends_id = $friends->pluck('friend_id')->toArray();
+        $posts = Post::whereIn('user_id', $user_friends_id)->get();
+        return $posts;
+    }
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 }

@@ -37,6 +37,11 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['main']);
   }
 
+<<<<<<< HEAD
+=======
+  loginUser(loginForm: NgForm): void{
+    console.log(loginForm);
+>>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
   }
   
 
