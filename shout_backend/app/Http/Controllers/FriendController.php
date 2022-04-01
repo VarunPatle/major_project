@@ -10,4 +10,44 @@ class FriendController extends Controller
         return Friend::all();
     }
 
+    public function store(Request $request)
+    {
+        return Friend::create($request->all());
+    }
+
+
+    public function destroy($id)
+    {
+        return Friend::where('friend_id',$id)->delete();
+    }
+    public function show($id)
+    {
+        return Friend::find($id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $friend = Friend::find($id);
+        $friend->update($request->all());
+        return $friend;
+    }
+
+
+    // search for a name
+    public function search($name){
+        return Friend::where('name', 'like', '%'.$name.'%')->get();
+    }
+
+    // public function getFriends(){
+    //     $user->friends()->get();
+    //     return $user;
+    // }
+
 }

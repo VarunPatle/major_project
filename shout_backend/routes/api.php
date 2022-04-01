@@ -22,9 +22,10 @@ use App\Http\Controllers\ReportController;
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::post('/users', [UserController::class, 'store']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::get('/users/search/{name}', [UserController::class, 'search']);
-Route::get('/users/posts/{id}', [UserController::class, 'getPostsByUser']);
-Route::get('/users/friends/{id}', [UserController::class, 'getFriendsByUser']);
+Route::get('/friends/user/{id}', [UserController::class, 'getFriendsByUser']);
 Route::post('/add_friend/{id}', [UserController::class, 'makeFriend']);
 
 
@@ -33,6 +34,9 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::post('/posts', [PostController::class, 'store']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+Route::put('/posts/{id}', [PostController::class, 'update']);
+Route::get('/posts/user/{id}', [UserController::class, 'getPostsByUser']);
+Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']);
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -42,11 +46,10 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // user
-    Route::put('/users/{id}', [UserController::class, 'update']);
-    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
 
     // posts
-    Route::put('/posts/{id}', [PostController::class, 'update']);
+
 
 });
 // Route::resource('post',PostController::class);

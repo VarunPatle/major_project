@@ -12,4 +12,10 @@ class Friend extends Model
     protected $fillable = [
         'user_id', 'friend_id', 'status'
     ];
+
+    // function friends(){
+    //     return $this->belongsToMany('user', 'friends', 'user_id', 'friend_id');
+    //         // if you want to rely on accepted field, then add this:
+    //         // ->wherePivot('accepted', '=', 1);
+    // }
 }
