@@ -22,11 +22,6 @@ class User extends Model
         return $this->hasMany('App\Models\Post');
     }
 
-<<<<<<< HEAD
-    public function friends(){
-        return $this->belongsToMany('App\Models\User',table: 'friends', foreignPivotKey: 'user_id', relatedPivotKey: 'friend_id');
-    }
-=======
     // public function friends(){
     //     return $this->belongsToMany('App\Models\User',table: 'friends', foreignPivotKey: 'user_id', relatedPivotKey: 'friend_id');
     // }
@@ -35,9 +30,8 @@ class User extends Model
         return $this->hasMany('App\Models\Friend');
     }
 
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 
-    
+
 }
 
 

@@ -10,8 +10,6 @@ class FriendController extends Controller
         return Friend::all();
     }
 
-<<<<<<< HEAD
-=======
     public function store(Request $request)
     {
         return Friend::create($request->all());
@@ -52,5 +50,4 @@ class FriendController extends Controller
     //     return $user;
     // }
 
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 }
