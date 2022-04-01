@@ -2,21 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 .navbar-brand{
   font-family: 'Pacifico', cursive;
-  color: rgb(34, 32, 28);
+  color:white;
   font-size: 22px;
+}
+button{
+  border-radius: 10px;
+}
+button:hover{
+  background-color: rgb(255, 166, 0);
 }
 .navbar-brand p{
   font-size: 13px;
-  color: rgb(66, 56, 56);
+  color: white;
   font-family: 'Pacifico', cursive;
 }
 
 a{
-  color: rgb(66, 56, 56);
+  color: white;
 }
 *{
   font-family: 'Poppins', sans-serif;
 }
 img{
   border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  font-weight: 100;
+}
+i{
+  font-size: 18px;
+  font-weight: lighter;
+  color: white;
+}
+nav{
+  background-color: black
 }

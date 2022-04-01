@@ -1,26 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container">
-  <div class="card text-center">
-    <div class="card-header">
-      <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
-      <div class="display-6">Welcome</div>
-    </div>
-    <div class="card-body">
-      <form #userForm="ngForm" (ngSubmit)="loginUser(userForm)">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="text" class="form-control" name="email" id="email" ngModel>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif;">Login Here</h2>
+      <!-- <div><img src="{{imagePath}}" alt="Avatar" class="avatar"></div> <br>  -->
+      <div class="form-group row">
+        <label for="username">Email :</label>
+        <div class="col">
+          <input type="email" id="username" name="username" ng-model="username" formControlName="username" required></div>
+       </div>
+      <div *ngIf="(submitted || PostData['username'].touched) && PostData['username'].invalid">
+        <div *ngIf="PostData['username'].errors && PostData['username'].errors['required']">
+        <label><h6>Enter your Mail-Id.</h6></label>
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" name="password" id="password" ngModel>
+      </div><br>
+    <div class="form-group ">
+        <label for="password">Password: </label>
+       <div ><input type="password" id="password" name="password" formControlName="password"></div> 
+    </div>
+      <div *ngIf="(submitted || PostData['password'].touched) && PostData['password'].invalid">
+        <div *ngIf="PostData['password'].errors && PostData['password'].errors['required']">
+         <label><h6>Enter Your Password.</h6></label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <div class="card-footer text-right">
-     <small><a routerLink="../forgot-password">Forgot Password</a></small>
-    </div>
+      </div><br>
+      <!-- <div class="card-footer text-left">
+        <small><a routerLink="../forgot-password">Forgot Password</a></small>
+      </div> -->
+      
+      <p *ngIf="!loginForm.valid; else elseBlock"> <button type="submit" class="btn btn-primary">Login</button></p>
+   <ng-template #elseBlock><button type="submit" class="btn btn-primary" [routerLink]="['/main']">Login</button></ng-template><br>
+    
+      <!-- <div class="mb-3"><button type="button" class="btn btn-primary" [routerLink]="['/main']">Login</button></div> -->
+      <div class="card-footer text-center">
+        <small>Not a Member?<a [routerLink]="['/register']">Register Here</a></small>
+      
+      
+      </div>
+    </form>
+
   </div>
-</div>
+</body>
 
+</html>

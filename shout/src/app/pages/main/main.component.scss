@@ -7,7 +7,7 @@
   /* TODO: MODULE_LAYOUT */
   /* 1. Set a specific height. */
   /* 2. Position and center the image to scale nicely on all screens. */
-  width: 100wh;
+  // width: 100wh;
   height: 50vh;
   background-size: cover;
   background-position: center;
@@ -27,9 +27,7 @@
   border-radius: 8px;
   border: none;
 }
-.container{
-  padding: 20px 0px;
-}
+
 .tile {
   /* TODO: MODULE_CARDS */
   /* 1. Fill in the required properties. */

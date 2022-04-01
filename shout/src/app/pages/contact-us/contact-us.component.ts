@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
+  imagePath = "assets/shouts/contact.png"
   constructor() { }
 
   ngOnInit(): void {

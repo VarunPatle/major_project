@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
-            $table->id('reportId');
-            $table->string('userId');
-            $table->string('postId');
-            $table->date('postedDate');
-            // $table->string('reportedCmmentContent');
-            
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->binary('image')->nullable();
+            $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('posts');
     }
 };

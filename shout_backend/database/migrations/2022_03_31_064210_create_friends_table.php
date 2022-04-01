@@ -14,10 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('friends', function (Blueprint $table) {
-            $table->id('friendsId');
-            $table->integer('userId');
+            $table->unsignedBigInteger('friend_id')->index();
+            $table->tinyInteger('status')->default('0');
+            $table->unsignedBigInteger('user_id')->index();
 
-            
+            $table->foreign('friend_id')->references('id')->on('users')->opDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->opDelete('cascade');
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('friends');
     }
 };

@@ -1,0 +1,56 @@
+.container{
+    width: 45%;
+    height: 60%;
+    background-color: rgb(247, 209, 83);
+    // padding: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    
+
+}
+button{
+width: 100%;
+}
+input{
+  // width: 100%;
+  // padding: 12px 20px;
+  // margin: 8px 0;
+  // border-bottom: 0px;
+  border-radius: 8px;
+  float: right;
+  border: none;
+}
+form {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 50px;
+  border-style: double;
+  border-radius: 15px;
+}
+label{
+  color:black;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+label:after{
+  content:"*" ;
+ color:red    
+ }
+small{
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+}
+img{
+  height: 90px;
+  width: 90px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;  
+  background-color: rgb(255, 166, 0);
+}
+p{
+    font-weight: normal;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}

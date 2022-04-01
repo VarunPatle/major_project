@@ -1,1 +1,101 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div><h2 style="text-align: center; font-family: 'Times New Roman', Times, serif;">Registration Form</h2></div> <br> <br>
+      <p>
+        <!-- <img src="{{imagePath}}" alt="Avatar" class="avatar"> -->
+        <label for="firstname">First Name :</label>
+        <input type="text" id="firstname" name="firstname" ng-model="firstname" formControlName="firstname" required>
+      </p>
+      <div *ngIf="(submitted || PostData['firstname'].touched) && PostData['firstname'].invalid">
+        <div *ngIf="PostData['firstname'].errors && PostData['firstname'].errors['required']">
+        <p>First Name is required.</p>
+        </div>
+      </div><br>
+    
+
+      <p>
+        <label for="lastname">Last Name : </label>
+        <input type="text" id="lastname" name="lastname" formControlName="lastname">
+      </p>
+      <div *ngIf="(submitted || PostData['lastname'].touched) && PostData['lastname'].invalid">
+        <div *ngIf="PostData['lastname'].errors && PostData['lastname'].errors['required']">
+        <p>Last Name is required.</p>
+        </div>
+      </div><br>
+      
+     <p>
+        <label for="email">Email : </label>
+        <input type="text" id="email" name="email" formControlName="email">
+      </p>
+      <div *ngIf="(submitted || PostData['email'].touched) && PostData['email'].invalid">
+        <div *ngIf="PostData['email'].errors && PostData['email'].errors['required']">
+          <p>Email is required.</p>
+        </div>
+      </div><br>
+      <p>
+        <label for="password">Password: </label>
+       <input type="password" id="password" name="password" formControlName="password">
+      </p>
+      <div *ngIf="(submitted || PostData['password'].touched) && PostData['password'].invalid">
+        <div *ngIf="PostData['password'].errors && PostData['password'].errors['required']">
+         <p>Password is required.</p>
+        </div>
+      </div><br>
+            <p>
+        <label for="gender">Geneder : </label>
+        <input type="text" value="male" id="gender" name="gender" formControlName="gender">
+      </p>
+      <div *ngIf="(submitted || PostData['gender'].touched) && PostData['gender'].invalid">
+        <div *ngIf="PostData['gender'].errors && PostData['gender'].errors['required']">
+          <p>Gender is required.</p>
+        </div>
+      </div><br>
+      <p>
+        <label for="gender">Contact : </label>
+        <input type="text" value="phone" id="phone" name="phone" formControlName="phone">
+      </p>
+      <div *ngIf="(submitted || PostData['phone'].touched) && PostData['phone'].invalid">
+        <div *ngIf="PostData['phone'].errors && PostData['phone'].errors['required']">
+          <p>Contact is required.</p>
+        </div>
+      </div><br>
+      <p>
+        <label for="gender">City : </label>
+        <input type="text" value="city" id="city" name="city" formControlName="city">
+      </p>
+      <div *ngIf="(submitted || PostData['city'].touched) && PostData['city'].invalid">
+        <div *ngIf="PostData['city'].errors && PostData['city'].errors['required']">
+          <p>City is required.</p>
+        </div>
+      </div><br>
+
+      
+      <p *ngIf="!signupForm.valid; else elseBlock"> <button type="submit" class="btn btn-primary">Login</button></p>
+      <ng-template #elseBlock><button type="submit" class="btn btn-primary" [routerLink]="['/home']">Login</button></ng-template>
+      <button type="button" class="btn btn-primary" [routerLink]="['/home']">Back</button>
+
+    </form>
+
+  </div>
+</body>
+
+</html>
