@@ -7,7 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReportController;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,22 +19,20 @@ use App\Http\Controllers\ReportController;
 |
 */
 // Route::resource('users',UserController::class);
-Route::get('/users', [UserController::class, 'index']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/users/{id}', [UserController::class, 'show']);
-Route::post('/users', [UserController::class, 'store']);
+Route::get('/users', [UserController::class, 'index']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::get('/users/search/{name}', [UserController::class, 'search']);
 Route::get('/friends/user/{id}', [UserController::class, 'getFriendsByUser']);
-Route::post('/add_friend/{id}', [UserController::class, 'makeFriend']);
+Route::post('/add_friend', [UserController::class, 'addFriend']);
 
 
 // Posts
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
-Route::post('/posts', [PostController::class, 'store']);
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
-Route::put('/posts/{id}', [PostController::class, 'update']);
 Route::get('/posts/user/{id}', [UserController::class, 'getPostsByUser']);
 Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']);
 
@@ -46,14 +44,16 @@ Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // user
-
+    Route::post('/logout', [AuthController::class, 'logout']);
 
     // posts
-
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::put('/posts/{id}', [PostController::class, 'update']);
+    Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 });
 // Route::resource('post',PostController::class);
-Route::resource('friends', FriendController::class);
+// Route::resource('friends', FriendController::class);
 Route::resource('comments', CommentController::class);
 Route::resource('reports', ReportController::class);
 // Route::resource('posts',PostController::class);

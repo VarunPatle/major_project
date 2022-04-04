@@ -17,9 +17,9 @@ export class MainComponent implements OnInit {
     this.getUsersData();
   }
   getUsersData(){
-    this.postService.getPosts().subscribe(res => {
-      this.posts = res;
-    })
+    // this.postService.getPosts().subscribe(res => {
+    //   this.posts = res;
+    // })
   }
 
 

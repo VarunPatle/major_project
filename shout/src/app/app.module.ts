@@ -12,13 +12,11 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { LoginComponent } from './pages/login/login.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { RegisterComponent } from './pages/register/register.component';
-<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './pages/logout/logout.component';
-=======
 import { UsersComponent } from './pages/users/users.component';
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -30,25 +28,20 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ContactUsComponent,
     RegisterComponent,
-<<<<<<< HEAD
     HomeComponent,
     LogoutComponent,
-=======
     UsersComponent,
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+    PostsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-<<<<<<< HEAD
     HttpClientModule,
     ReactiveFormsModule
-    
-=======
-    HttpClientModule
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,48 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 .navbar-brand{
   font-family: 'Pacifico', cursive;
-<<<<<<< HEAD
-  color:white;
-  font-size: 22px;
-=======
-  color: rgb(34, 32, 28);
+  color: rgb(252,202,69);
   font-size: 29px;
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
 }
 button{
   border-radius: 10px;
+  color: whitesmoke;
 }
 button:hover{
-  background-color: rgb(255, 166, 0);
+  background-color: rgb(252,202,69);
+  color: black;
 }
 .navbar-brand p{
-<<<<<<< HEAD
-  font-size: 13px;
-  color: white;
-=======
   font-size: 16px;
-  color: rgb(66, 56, 56);
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+  color: rgb(252,202,69);
   font-family: 'Pacifico', cursive;
-}
-
-a{
-  color: white;
 }
 *{
   font-family: 'Poppins', sans-serif;
 }
 img{
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
   font-weight: 100;
 }
-i{
-  font-size: 18px;
-  font-weight: lighter;
-  color: white;
-}
-nav{
-  background-color: black
-}
+
+

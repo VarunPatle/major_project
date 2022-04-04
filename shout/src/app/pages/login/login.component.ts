@@ -1,3 +1,5 @@
+import { SharedService } from './../../services/shared.service';
+import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, NgForm, Validators, FormBuilder} from '@angular/forms'
@@ -11,39 +13,50 @@ import { FormGroup, FormControl, NgForm, Validators, FormBuilder} from '@angular
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  username: string = "";
+  token:any;
+  user:any;
+  logged:string = 'signup';
+  email: string = "";
   password: string = "";
 
   submitted = false;
   form: any;
   imagePath = "assets/shouts/login.png"
-  constructor(private formBuilder:FormBuilder,public router:Router){
+  constructor(private formBuilder:FormBuilder,public router:Router, private userService: UserService, private sharedService: SharedService){
     this.loginForm=formBuilder.group({
-    username: new FormControl('',[Validators.required,Validators.minLength(3)]),
+    email: new FormControl('',[Validators.required,Validators.minLength(3)]),
     password: new FormControl('',[Validators.required, Validators.maxLength(15)]),
-    
+
     })
   }
   ngOnInit(): void {
   }
   onSubmit() {
     this.submitted=true;
-    console.log(this.loginForm.value);
+    this.userService.login(this.loginForm.value).subscribe(res => {
+      console.log(res);
+      if(res!=0){
+        this.user = res.user;
+        this.token = res.token
+        sessionStorage.setItem('user', this.user);
+        sessionStorage.setItem('token', this.token);
+        this.router.navigate(['main']);
+        this.sharedService.setValue(true);
+      }else{
+        alert("Please enter correct email and password...");
+      }
+    })
+
   }
+
+
   get PostData(){
     return this.loginForm.controls;
   }
-  goToMainPage(){
-    this.router.navigate(['main']);
+
+
   }
 
-<<<<<<< HEAD
-=======
-  loginUser(loginForm: NgForm): void{
-    console.log(loginForm);
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
-  }
-  
 
 
 
