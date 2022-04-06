@@ -10,9 +10,9 @@ export class UserService {
   private _registerUrl = 'http://localhost:8000/api/register'
   constructor(private httpClient:HttpClient) { }
 
-  // getUsers(){
-  //   return this.httpClient.get('http://localhost:8000/api/users');
-  // }
+  getUsers(){
+    return this.httpClient.get('http://localhost:8000/api/users');
+  }
 
   registerUser(data:any){
     return this.httpClient.post(this._registerUrl, data);

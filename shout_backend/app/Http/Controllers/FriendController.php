@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\FriendUser;
 use Illuminate\Http\Request;
 use App\Models\User;
 class FriendController extends Controller
 {
     public function index()
     {
-        return Friend::all();
+        return FriendUser::all();
     }
 
     /**
@@ -27,11 +29,11 @@ class FriendController extends Controller
 
     public function destroy($id)
     {
-        return Friend::where('friend_id',$id)->delete();
+        return FriendUser::where('friend_id',$id)->delete();
     }
     public function show($id)
     {
-        return Friend::find($id);
+        return FriendUser::find($id);
     }
 
     /**
@@ -43,7 +45,7 @@ class FriendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $friend = Friend::find($id);
+        $friend = FriendUser::find($id);
         $friend->update($request->all());
         return $friend;
     }
@@ -51,7 +53,7 @@ class FriendController extends Controller
 
     // search for a name
     public function search($name){
-        return Friend::where('name', 'like', '%'.$name.'%')->get();
+        return FriendUser::where('name', 'like', '%'.$name.'%')->get();
     }
 
     // public function getFriends(){

@@ -1,1 +1,33 @@
-<p>posts works!</p>
+<!-- <div>
+    <input type="file" class="form-control" (change)="imageUpload($event)">
+    <input type="submit" class="btn btn-primary">
+</div> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">USerId</th>
+          <th scope="col">Discription</th>
+          <th scope="col">Image</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td scope="row">{{post.user_id}}</td>
+          <td></td>
+          <td>{{post.description}}<br>Posted on {{post.created_at | date}}<br><img src="{{imagePath}}{{post.image}}" alt="img"><br>
+           <div>
+            <button (click)="increamentCounter()"><i class="fa fa-heart" style="font-size:24px;"></i>{{counter}}</button>   
+
+             <!-- <button style="font-size:18px;margin-left:50px">Comments <i class="fa fa-comments-o"></i></button>           -->
+             <br>
+             <form routerLink="/main"></form><textarea name="comments" id="comments" cols="30" rows="2" placeholder="Your Comments..."></textarea>
+             <input type="submit" value="submit">
+           </div> 
+          </td>
+          </tbody>
+    </table>
+  </div>
+  

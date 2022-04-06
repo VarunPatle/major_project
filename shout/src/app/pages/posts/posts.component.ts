@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-
-  constructor() { }
+  posts: any;
+  imagePath='http://127.0.0.1:8000/public/images/';
+  counter = 0;
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-  }
+    this.postService.getPosts().subscribe(res =>{
+      this.posts = res;
+      console.log(this.posts);
 
-}
+    })
+  }
+  increamentCounter(){
+    this.counter++;
+    }
+  }
+  
+  
+
