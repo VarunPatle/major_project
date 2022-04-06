@@ -1,3 +1,4 @@
+import { PostsComponent } from './pages/posts/posts.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -8,6 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UsersComponent } from './pages/users/users.component';
+import { FriendsComponent } from './pages/friends/friends.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,10 +19,15 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'contact', component: ContactUsComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'main', component: MainComponent},
+  { path: 'main', component: MainComponent,
+  children : [
+    { path: '', component: PostsComponent },
+    { path: 'friends', component: FriendsComponent },
+    { path: 'requests', component: FriendRequestsComponent }
+  ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
-  // { path: 'posts', component: posts },
+
 
 
 

@@ -35,8 +35,8 @@
       <button class="btn" routerLink="/contact"> Contact us</button>&nbsp;
 
 
-      <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/register"> Logout</button></div>
-   <ng-template #elseBlock><button class="btn" routerLink="/register"> Signup</button></ng-template><br>
+      <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/register"> Signup</button></div>
+   <ng-template #elseBlock><button class="btn" routerLink="/register"> logout</button></ng-template><br>
 
 
    </div>

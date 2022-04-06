@@ -17,6 +17,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { UsersComponent } from './pages/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './pages/posts/posts.component';
+import { FriendsComponent } from './pages/friends/friends.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PostsComponent } from './pages/posts/posts.component';
     LogoutComponent,
     UsersComponent,
     PostsComponent,
+    FriendsComponent,
+    FriendRequestsComponent,
 
   ],
   imports: [

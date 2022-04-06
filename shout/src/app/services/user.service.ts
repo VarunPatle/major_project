@@ -7,12 +7,13 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private _loginUrl = 'http://localhost:8000/api/login'
+  private _addFriendUrl = 'http://localhost:8000/api/add_friend'
   private _registerUrl = 'http://localhost:8000/api/register'
   constructor(private httpClient:HttpClient) { }
 
-  // getUsers(){
-  //   return this.httpClient.get('http://localhost:8000/api/users');
-  // }
+  getUsers(id:any){
+    return this.httpClient.get('http://localhost:8000/api/other_users/'+id);
+  }
 
   registerUser(data:any){
     return this.httpClient.post(this._registerUrl, data);
@@ -21,6 +22,7 @@ export class UserService {
   login(data:any){
     return this.httpClient.post<any>(this._loginUrl, data);
   }
+
 
 
 }

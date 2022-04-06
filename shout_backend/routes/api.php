@@ -23,13 +23,16 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/other_users/{id}', [UserController::class, 'otherUsers']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::get('/users/search/{name}', [UserController::class, 'search']);
 Route::get('/friends/user/{id}', [UserController::class, 'getFriendsByUser']);
 Route::post('/add_friend', [UserController::class, 'addFriend']);
-
-
+Route::get('/friendRequest/{id}', [UserController::class, 'getFriendRequets']);
+Route::get('/friendRequest', [UserController::class, 'getAllFriendRequets']);
+Route::delete('/friendsTable/{id}', [UserController::class, 'deleteFromFriends']);
+Route::put('/accept/{id}', [UserController::class, 'acceptRequest']);
 // Posts
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
@@ -40,16 +43,16 @@ Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::post('/logout', [AuthController::class, 'logout']);
 
+    // posts
+Route::post('/posts', [PostController::class, 'store']);
+Route::put('/posts/{id}', [PostController::class, 'update']);
+Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // user
-    Route::post('/logout', [AuthController::class, 'logout']);
 
-    // posts
-    Route::post('/posts', [PostController::class, 'store']);
-    Route::put('/posts/{id}', [PostController::class, 'update']);
-    Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 });
 // Route::resource('post',PostController::class);

@@ -10,11 +10,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MainComponent implements OnInit {
   posts: any;
-  post:any
+  post:any;
+  user:any;
+  username:string;
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.getUsersData();
+    this.user = JSON.parse(sessionStorage.user);
+    this.username = this.user.name;
   }
   getUsersData(){
     // this.postService.getPosts().subscribe(res => {
