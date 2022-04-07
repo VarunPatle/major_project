@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin1');
 });
+Route::get('/user', [AdminController::class, 'index']);
+
+Route::get('/delete/{id}', [AdminController::class, 'destroy']);
+Route::get('/delete1/{id}', [AdminController::class, 'destroy1']);
+
