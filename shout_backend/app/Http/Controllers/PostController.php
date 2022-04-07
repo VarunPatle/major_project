@@ -21,7 +21,7 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-        
+
         $image =time() . "_" . $request->file('image')->getClientOriginalName();
         $request->file('image')->move('public/images/',$image);
         $photo = new Post();
@@ -37,7 +37,7 @@ class PostController extends Controller
         // return Post::create($request->all());
     //    return $name;
     }
-    
+
 
 
     public function destroy($id)
@@ -63,7 +63,6 @@ class PostController extends Controller
         return $post;
     }
 
-
     // search for a name
     public function search($name){
         return Post::where('name', 'like', '%'.$name.'%')->get();
@@ -79,9 +78,13 @@ class PostController extends Controller
         // return response()->download($path.$image);
 
     }
-   
 
-   
+    public function getReports($id){
+        return Post::find($id)->reports->get();
+    }
+
+
+
 
 
 }

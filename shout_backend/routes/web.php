@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/', function () {
 // Route::get('/post',[PostController::class,'create']);
 // Route::post('/post',[PostController::class,'storeImage']);
 // Route::get('/getImage',[PostController::class,'getImage']);
+Route::get('/reports{id}', function () {
+    return view('welcome');
+});
+Route::get('/reports-on-post/{id}', [PostController::class, 'getReports']);
+Route::resource('reports', ReportController::class);
