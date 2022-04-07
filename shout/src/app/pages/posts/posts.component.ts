@@ -13,11 +13,11 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe(res =>{
-      this.posts = res;
-      console.log(this.posts);
+    // this.postService.getPosts().subscribe(res =>{
+    //   this.posts = res;
+    //   console.log(this.posts);
 
-    })
+    // })
   }
   increamentCounter(){
     this.counter++;

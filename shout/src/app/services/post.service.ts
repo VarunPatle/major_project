@@ -7,10 +7,13 @@ import { HttpClient } from '@angular/common/http'
 export class PostService {
 
   constructor(private httpClient:HttpClient) { }
-  getPosts(){
-    return this.httpClient.get('http://127.0.0.1:8000/api/posts');
+  getPosts(id:number){
+    return this.httpClient.get('http://127.0.0.1:8000/api/posts/user_friend'+id);
   }
   // registerUser(data:any){
   //   return this.httpClient.post('http://localhost:8000/api/post', data);
   // }
+  postFeed(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/posts',data);
+  }
 }

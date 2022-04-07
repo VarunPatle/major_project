@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted=true;
     this.userService.login(this.loginForm.value).subscribe(res => {
-      console.log(res);
+      
       if(res!=0){
         this.user = res.user;
         this.token = res.token
-        sessionStorage.setItem('user', this.user);
+        sessionStorage.setItem('user', JSON.stringify(this.user));
         sessionStorage.setItem('token', this.token);
-        this.router.navigate(['main']);
         this.sharedService.setValue(true);
+        this.router.navigate(['main']);
       }else{
         alert("Please enter correct email and password...");
       }
