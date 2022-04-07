@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/post',[PostController::class,'create']);
+// Route::post('/post',[PostController::class,'storeImage']);
+// Route::get('/getImage',[PostController::class,'getImage']);

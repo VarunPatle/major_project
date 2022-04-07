@@ -27,4 +27,6 @@ export class UserService {
     return this.httpClient.get('http://localhost:8000/api/users/search/'+name);
   }
 
+  
+
 }

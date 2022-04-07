@@ -1,17 +1,16 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  isLoggedin = false;
-  constructor() { }
+  private loggedinSource = new BehaviorSubject<boolean>(false);
+  isLoggedin = this.loggedinSource.asObservable();
 
-  setValue(data:any){
-    this.isLoggedin = data;
-  }
-  getValue(){
-    return this.isLoggedin;
-  }
+  constructor(){}
 
+  setLogin(isLoggedin: boolean){
+    this.loggedinSource.next(isLoggedin);
+  }
 }

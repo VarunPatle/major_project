@@ -3,30 +3,53 @@
   <div class="hero-subheading text-center">
     Connecting ideas and people – how talk can change our lives
   </div>
-  <input
+  <form class="text-center" [formGroup]="searchForm" (ngSubmit)="searchUser()">
+    <input
     class="hero-input text-center"
     placeholder="Search your friend here"
     type="text"
-    formControlName="searchedUser"
+    formControlName="user"
     data-toggle="modal" data-target="#exampleModal"
   />
-  <button data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary" (click)="searchUser()">Search</button>
+   <br> <br>
+  <!-- <button data-toggle="modal" type="submit" data-target="#exampleModal" class="btn btn-primary ">Search</button> -->
+  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Search
+  </button>
+  </form>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title text-dark" id="exampleModalLabel ">Search result</h5>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of searchedUser">
+                <th scope="row">{{user.name}}</th>
+                <td>{{user.city}}</td>
+                <td>{{user.gender}}</td>
+                <td>
+                  <div *ngIf="!isFriend; else elseBlock">
+                    <button class="btn btn-secondary" (click)="addAsFriend(user.id, user.name)">Add as friend</button>
+                </div>
+                <ng-template #elseBlock>
+                  <button class="btn btn-primary">Request sent</button>
+                </ng-template>
+              </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -60,3 +83,5 @@
     </section>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+

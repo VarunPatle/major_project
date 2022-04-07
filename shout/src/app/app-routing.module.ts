@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { UsersComponent } from './pages/users/users.component';
 import { FriendsComponent } from './pages/friends/friends.component';
 import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
+import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
+  { path: 'feed', component: FeedComponent },
 
 
 
