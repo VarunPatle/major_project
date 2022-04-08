@@ -129,28 +129,37 @@
                                     <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Created At</th>
-      <th scope="col">Updated At</th>
-      <th scope="col">Activity</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Created At</th>
+                                    <th scope="col">Activity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-    @if (count($users)!= 0)
-    @foreach ($users as $user)
-    <tr>
-        <th scope="row">{{ $user->id }}</th>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->email }}</td>
-        <td>{{ $user->created_at }}</td>
-        <td>{{ $user->updated_at }}</td>
-        <td><a href = 'delete/{{ $user->id }}'><button type="button" class="btn btn-danger">Delete</button></a></td>
-        </td> 
+                              @if (count($users)!= 0)
+                              @foreach ($users as $user)
+                             <tr>
+                                    <th scope="row">{{ $user->id }}</th>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->gender }}</td>
+                                    <td>{{ $user->updated_at }}</td>
+                                   <td><form action="{{ route('user.destroy', $user->id)}}" method="post" style="display: inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                  </form>
+                  <form action="{{ route('user.update', $user->id)}}" method="post" style="display: inline-block">
+                    @csrf
+                    @method('PATCH')
+                    <button class="btn btn-danger btn-sm" type="submit">Approved</button>
+                  </form>
+                                  </td>
+                                   </td> 
 
-              </tr>
-                @endforeach
-                                @endif
-
+                              </tr>
+                               @endforeach
+                               @endif
                               </tbody>
                             </table>
                            </div>
@@ -168,24 +177,22 @@
                         </div>
                         <div class="card-body">
                         <div class="row">
-    <div class="table-responsive">
-    <table width="100%">
-  <thead class="table-dark">
-    <tr>
-      
-      <th scope="col">#</th>
-      <th scope="col">Posts</th>
-      <th scope="col">Created_At</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    @if (count($posts)!= 0)
-    @foreach ($posts as $post)
-    <tr>
-        
-    <th scope="row">{{ $post->id }}</th>
-        <td>{{ $post->description }}</td>
+                          <div class="table-responsive">
+                               <table width="100%">
+                               <thead class="table-dark">
+                                     <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">Posts</th>
+                                          <th scope="col">Created_At</th>
+                                          <th scope="col">Status</th>
+                                     </tr>
+                                </thead>
+                        <tbody>
+                            @if (count($posts)!= 0)
+                            @foreach ($posts as $post)
+                        <tr>
+                             <th scope="row">{{ $post->id }}</th>
+                            <td>{{ $post->description }}</td>
         <td>{{ $post->created_at }}</td>
         <td><a href = 'delete1/{{ $post->id }}'><button type="button" class="btn btn-danger">Delete</button></a>
         </a></td>
