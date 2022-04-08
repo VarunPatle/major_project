@@ -24,11 +24,12 @@ const routes: Routes = [
   children : [
     { path: '', component: PostsComponent },
     { path: 'friends', component: FriendsComponent },
-    { path: 'requests', component: FriendRequestsComponent }
+    { path: 'requests', component: FriendRequestsComponent },
+    { path: 'feed', component: FeedComponent }
   ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
-  { path: 'feed', component: FeedComponent },
+  
 
 
 
