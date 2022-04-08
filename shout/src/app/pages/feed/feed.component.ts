@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 
+
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -24,7 +26,7 @@ export class FeedComponent implements OnInit {
     this.postsForm = formBuilder.group({
       description: new FormControl(),
       image: new FormControl(),
-      
+
 
     })
   }
@@ -60,7 +62,7 @@ onUpload() {
   this.postService.postFeed(data).subscribe(res => {
        console.log(res);
   });
-  
+
 }
 onFileChange(event: any) {
     //console.log(event)
@@ -70,7 +72,7 @@ onFileChange(event: any) {
     const [file] = event.target.files;
           reader.readAsDataURL(file);
           reader.onload = () => {
-          this.imagePath = reader.result as string; 
+          this.imagePath = reader.result as string;
           this.postsForm.patchValue({
 
           fileSource: reader.result

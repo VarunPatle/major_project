@@ -8,8 +8,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <th scope="row">{{user.name}}</th>
+      <tr *ngFor="let user of users" >
+          <th scope="row">{{user.name}}</th>
         <td>{{user.city}}</td>
         <td>
           <div *ngIf="!isFriend; else elseBlock">

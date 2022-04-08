@@ -8,7 +8,6 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: any;
-  userId:any;
   imagePath='http://127.0.0.1:8000/public/images/';
   username:string;
   user:any;
@@ -34,7 +33,7 @@ export class PostsComponent implements OnInit {
     })
   }
 
-  
+
   }
 
 

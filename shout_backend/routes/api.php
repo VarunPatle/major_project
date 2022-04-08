@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
@@ -94,3 +95,4 @@ Route::resource('reports', ReportController::class);
     // return $request->comments();
 // });
 
+Route::get('/users-count', [AdminController::class, 'countUser']);

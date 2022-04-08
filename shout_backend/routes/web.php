@@ -15,22 +15,22 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('admin1');
-});
+// Route::get('/', function () {
+//     return view('admin1');
+// });
 
-Route::get('/user', [AdminController::class, 'index']);
+Route::get('/', [AdminController::class, 'index']);
 
 Route::get('/delete/{id}', [AdminController::class, 'destroy']);
 Route::get('/delete1/{id}', [AdminController::class, 'destroy1']);
 
 
-// Route::get('/post',[PostController::class,'create']);
-// Route::post('/post',[PostController::class,'storeImage']);
-// Route::get('/getImage',[PostController::class,'getImage']);
+
 Route::get('/reports{id}', function () {
     return view('welcome');
 });
 Route::get('/reports-on-post/{id}', [PostController::class, 'getReports']);
 Route::resource('reports', ReportController::class);
 
+Route::get('/users-count', [AdminController::class, 'countUser']);
+Route::put('/auth/{id}', [AdminController::class, 'authUser']);
