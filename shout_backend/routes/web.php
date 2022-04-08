@@ -4,7 +4,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +20,12 @@ Route::get('/', function () {
     return view('admin1');
 });
 
-Route::get('/user', [AdminController::class, 'index']);
+Route::get('/', [AdminController::class, 'index']);
 
 Route::get('/delete/{id}', [AdminController::class, 'destroy']);
 Route::get('/delete1/{id}', [AdminController::class, 'destroy1']);
-
+Route::put('/users/{id}', [AdminController::class, 'update']);
+Route::resource('user',AdminController::class);
 
 // Route::get('/post',[PostController::class,'create']);
 // Route::post('/post',[PostController::class,'storeImage']);
