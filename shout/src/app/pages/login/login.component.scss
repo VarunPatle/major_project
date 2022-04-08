@@ -1,51 +1,27 @@
-.container{
-  // width: 60%;
-  background-color: rgb(247, 209, 83);
-  // padding: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-}
 button{
+
   color: black;
+  background-color: #b0a157;
   width: 100%;
+}
+a{
+  text-decoration: none;
 }
 input{
   width: 100%;
-  // padding: 12px 20px;
-  // margin: 8px 0;
-  // border-bottom: 0px;
+  background-color: rgb(203,176,82);
   border-radius: 10px;
-  // box-sizing: border-box;
-  // border: none;
   border-bottom: 2px solid rgb(255, 166, 0);
+  border-right: 2px solid rgb(255, 166, 0);
 }
-form {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 20px;
-}
+
 label{
   color: rgb(3, 3, 3);
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
+  font-family: 'poppins';
 }
-small{
-  color: black;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-}
-img{
-  height: 90px;
-  width: 90px;
-  display: block;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;  
-  background-color: rgb(255, 166, 0);
-}
-h6{
-  font-weight: normal;
-  color: red;
-  font-size: small;
-  // padding: 12px 20px;
-  // margin: 8px 0;
-  // border-bottom: 0px;;
-}
+
+
+
+

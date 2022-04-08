@@ -1,42 +1,19 @@
-<nav class="navbar">
+
+<nav class="navbar bg-dark">
   <div class="container-fluid">
-<<<<<<< HEAD
     <a class="navbar-brand" routerLink='/home'>
       <img src="../../../assets/shot.jpeg" width="60px">
       Shout <br>
       <p> &nbsp; &nbsp; &nbsp; Raise your voice</p>
     </a>
     <div class="d-flex">
-     <div ><input type="text"  placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search" style="color: black;"></i></button></div> 
-      <button class="btn"><i class="fa fa-home" aria-current="page" routerLink='/main'>Home</i></button>
-      <button class="btn"><i class="fa fa-bell">Notification</i></button>
-      <button class="btn"><i class="fa fa-bars" routerLink='/about'>About Us</i></button>
-      <!-- <button class="btn"><i class="fa fa-sign-in" routerLink="/login">Login</i></button> -->
-      <div class="w3-dropdown-hover">
-        <button class="btn"><i class='fa fa-user'>Profile </i></button>
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-          <button class="btn" ><i class="fa fa-smile-o" style="color: black;"> Your Profile</i></button>
-          <button class="btn"> <i class='fa fa-users' style="color: black;"> Friends</i></button>
-          <button class="btn"><i class='fa fa-gear' style="color: black;"> Setting </i></button>
-          <button class="btn"><i class="fa fa-phone" [routerLink]="['/contact']" style="color: black;"> Contact Us</i></button>
-          <button class="btn"><i class="fa fa-sign-out" [routerLink]="['/logout']" style="color: black;"> LogOut</i></button>
-        </div>
-      </div>
+      <button class="btn" routerLink="/contact"> Contact us</button>&nbsp;
+
+   <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/home"> Signup</button></div>
+   <ng-template #elseBlock><button class="btn" (click)="logout()"> Logout</button></ng-template><br>
+
+
    </div>
-=======
-      <a class="navbar-brand" routerLink='/home'>
-        <img src="../../../assets/shot.jpeg" width="80px">
-        Shout <br>
-        <p > &nbsp; &nbsp; &nbsp; Raise your voice</p>
-      </a>
-    <div class="d-flex">
-      <a class="nav-link active" aria-current="page" routerLink='/home'>Home</a>
-        <a class="nav-link" routerLink='/register'>Register</a>
-        <a class="nav-link" routerLink="/login" >Login</a>
-        <a class="nav-link" routerLink="/users" >Users</a>
-        <a class="nav-link" routerLink="/contact" >Contact</a>
-    </div>
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
   </div>
 </nav>
+

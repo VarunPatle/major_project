@@ -1,3 +1,4 @@
+import { PostsComponent } from './pages/posts/posts.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -7,10 +8,10 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './pages/register/register.component';
-<<<<<<< HEAD
-=======
 import { UsersComponent } from './pages/users/users.component';
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+import { FriendsComponent } from './pages/friends/friends.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
+import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,16 +20,19 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'contact', component: ContactUsComponent },
   { path: 'register', component: RegisterComponent },
-<<<<<<< HEAD
-  { path: 'main', component: MainComponent},
+  { path: 'main', component: MainComponent,
+  children : [
+    { path: '', component: PostsComponent },
+    { path: 'friends', component: FriendsComponent },
+    { path: 'requests', component: FriendRequestsComponent }
+  ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
+  { path: 'feed', component: FeedComponent },
 
 
-  
-=======
-  { path: 'users', component: UsersComponent },
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+
+
 ];
 
 @NgModule({

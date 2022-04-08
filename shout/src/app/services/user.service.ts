@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private _loginUrl = 'http://localhost:8000/api/login'
+  private _addFriendUrl = 'http://localhost:8000/api/add_friend'
+  private _registerUrl = 'http://localhost:8000/api/register'
   constructor(private httpClient:HttpClient) { }
 
-  getUsers(){
-<<<<<<< HEAD
-    return this.httpClient.get('http://localhost:8000/api/user');
+  getUsers(id:any){
+    return this.httpClient.get('http://localhost:8000/api/other_users/'+id);
   }
 
   registerUser(data:any){
-    return this.httpClient.post('http://localhost:8000/api/user', data);
-=======
-    return this.httpClient.get('http://localhost:8000/api/users');
+    return this.httpClient.post(this._registerUrl, data);
   }
 
-  registerUser(data:any){
-    return this.httpClient.post('http://localhost:8000/api/users', data);
->>>>>>> 1ce23d41b7ef1611cb20d4592a6f8386b20cca69
+  login(data:any){
+    return this.httpClient.post<any>(this._loginUrl, data);
   }
+
+  searchUser(name:string){
+    return this.httpClient.get('http://localhost:8000/api/users/search/'+name);
+  }
+
+  
+
 }

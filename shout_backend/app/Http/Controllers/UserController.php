@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
-use App\Models\Friend;
+use App\Models\FriendUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,6 +18,11 @@ class UserController extends Controller
     {
         return User::all();
     }
+    public function otherUsers($id)
+    {
+        return User::all()->except($id);
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -25,32 +30,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $user = User::where('email', $request['email'])->first();
-        if($user){
-            $response['status'] = 0;
-            $response['message'] = 'Eamil already exists';
-            $response['code'] = 409;
-        }else{
-            $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'dob' => $request->dob,
-            'password' => bcrypt($request->password),
-            'gender' => $request->gender,
-            'city' => $request->city
-            ]);
-        $response['status'] = 1;
-        $response['message'] = 'User created successfully';
-        $response['code'] = 200;
-        }
-
-
-
-        return response()->json($response);
-
-    }
+    //
 
     /**
      * Display the specified resource.
@@ -108,21 +88,57 @@ class UserController extends Controller
     // return $posts;
     // }
     // friends
-    public function makeFriend(Request $request, $id){
-        return Friend::create([
-            'user_id' => $id,
-            'friend_id' => $request->friend_id
-        ]);
-    }
 
-    public function getFriendsByUser($id){
-        return User::find($id)->friends;
-    }
+
 
     public function getFriendsPosts($id){
         $friends = User::find($id)->friends;
         $user_friends_id = $friends->pluck('friend_id')->toArray();
         $posts = Post::whereIn('user_id', $user_friends_id)->get();
         return $posts;
+
+
+    }
+
+    public function addFriend(Request $request){
+        $user_id = $request->user_id;
+        $friend_id = $request->friend_id;
+
+        return FriendUser::create([
+            'user_id' => $user_id,
+            'friend_id' => $friend_id
+        ]);
+
+    }
+
+    public function getFriendRequets($id){
+        // return FriendUser::all()->where('friend_id', $id);
+        $usersDetails = DB::table('users')
+            ->join('friend_user', 'users.id', '=', 'friend_user.user_id')// joining the contacts table , where user_id and contact_user_id are same
+            ->select('users.name', 'users.city','users.dob','users.gender', 'friend_user.status', 'friend_user.id', 'friend_user.user_id', 'friend_user.friend_id')
+            ->where('friend_id', $id)
+            ->get();
+
+        return $usersDetails;
+    }
+    public function getAllFriendRequets(){
+        return FriendUser::all();
+    }
+
+    public function deleteFromFriends($id)
+    {
+        return FriendUser::where('user_id',$id)->delete();;
+    }
+
+    public function acceptRequest($id, Request $request){
+        // DB::table('friend_user')
+        // ->where('id', $id)
+        // ->update([
+        //     'status'     => 1
+        // ]);
+
+        $friendUser = FriendUser::find($id);
+        $friendUser->update($request->all());
+        return $friendUser;
     }
 }
