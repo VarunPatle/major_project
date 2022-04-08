@@ -3,7 +3,7 @@
 button{
 
   color: black;
-  background-color: #b0a157;
+  background-color: white;
   width: 100%;
 }
 a{
@@ -11,16 +11,20 @@ a{
 }
 input{
   width: 100%;
-  background-color: rgb(203,176,82);
+  background-color: rgb(70,88,90);
   border-radius: 10px;
-  border-bottom: 2px solid rgb(255, 166, 0);
-  border-right: 2px solid rgb(255, 166, 0);
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
 }
 
 label{
   color: rgb(3, 3, 3);
   font-family: 'poppins';
 }
+h2,h6,label,small{
+  color: whitesmoke;
+}
+
 
 
 

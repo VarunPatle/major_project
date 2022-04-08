@@ -7,6 +7,7 @@ img {
   width: 100%;
   height: 80vh;
   object-fit: cover;
+  //filter: brightness(50%);
 }
 
 .centered {
@@ -18,7 +19,7 @@ img {
 
 h1 {
   position: absolute;
-  top: 25%;
+  top: 10%;
   left: 32%;
   transform: translate(-50%, -50%);
   font-family: 'Rubik Wet Paint', cursive;

@@ -1,57 +1,11 @@
-<p>feed works!</p>
-<div>
-    <input type="file">
-    <button type="button" (click)="onPost()" class="btn btn-primary">post</button>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<form class="container" [formGroup]="postsForm" method="post" >
+    <div class="form-group">
+      <label for="exampleInputEmail1">Description :</label>
+      <input type="text" class="form-control" id="description" formControlName="description" [(ngModel)]="description">
+    </div><br>
+    <div class="form-group">
+        <img [src]="imagePath" *ngIf="imagePath" style="height: 300px; width:500px">
+      <input type="file" class="form-control" accept="image/*" id="image"  formControlName="image" (change)="onFileChange($event)" [(ngModel)]="image">
+    </div><br>
+    <button class="btn btn-primary" (click)="onUpload()">Post</button>
+  </form>
