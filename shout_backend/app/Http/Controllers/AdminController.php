@@ -50,6 +50,18 @@ class AdminController extends Controller
         return redirect('/user');
     }
 
+    public function update(Request $request, $id)
+    {
+        // $user = User::find($id);
+       
+       DB::table('users')->where('id',$id)
+        ->update(['authenticated' => 1 ]);
+        
+        return redirect('/user');
+
+    }
+
+
 
 
 }

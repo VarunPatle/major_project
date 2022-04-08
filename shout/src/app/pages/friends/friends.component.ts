@@ -12,6 +12,7 @@ export class FriendsComponent implements OnInit {
   requestedFriend:any;
   requester:any;
   isFriend: boolean = false;
+  isAuthenticated : boolean ;
   constructor(private userService: UserService, private friendService:FriendService) { }
 
   ngOnInit(): void {
