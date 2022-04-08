@@ -45,12 +45,12 @@
   /* 1. Fill in the required properties. */
   filter: brightness(50%);
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .navbar{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(rgb(86,87,92), rgb(33,37,41));
   transition: 0.4s;
 }
@@ -63,5 +63,5 @@
   background-color: rgb(53, 48, 48);
 }
 ul{
-  margin-left: 100px;
+  margin-left: px;
 }

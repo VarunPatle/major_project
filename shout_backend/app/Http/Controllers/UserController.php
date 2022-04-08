@@ -18,6 +18,11 @@ class UserController extends Controller
     {
         return User::all();
     }
+    public function otherUsers($id)
+    {
+        return User::all()->except($id);
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -83,16 +88,29 @@ class UserController extends Controller
     // return $posts;
     // }
     // friends
-    public function makeFriend(Request $request, $id){
 
-    }
 
 
     public function getFriendsPosts($id){
         $friends = User::find($id)->friends;
         $user_friends_id = $friends->pluck('friend_id')->toArray();
-        $posts = Post::whereIn('user_id', $user_friends_id)->get();
-        return $posts;
+
+        // $posts= User::find($id)->posts;
+
+        //$user_id = $posts->pluck('user_id')->toArray();
+
+        $posts = Post::whereIn('user_id',$user_friends_id)->get();
+        $user_id = $posts->pluck('user_id')->toArray();
+        // $user_id = $posts->pluck('user_id')->toArray();
+
+        $usersDetails = DB::table('users')
+        ->join('posts', 'users.id', '=', 'posts.user_id')// joining the contacts table , where user_id and contact_user_id are same
+        ->select('users.name', 'users.city','users.dob','users.gender','posts.id','posts.user_id','posts.description','posts.image','posts.created_at')
+        ->whereIn('posts.user_id', $user_id)
+        ->get();
+         return $usersDetails;
+
+
     }
 
     public function addFriend(Request $request){
@@ -104,6 +122,46 @@ class UserController extends Controller
             'friend_id' => $friend_id
         ]);
 
+    }
 
+    public function getFriendRequets($id){
+        // return FriendUser::all()->where('friend_id', $id);
+        $usersDetails = DB::table('users')
+            ->join('friend_user', 'users.id', '=', 'friend_user.user_id')// joining the contacts table , where user_id and contact_user_id are same
+            ->select('users.name', 'users.city','users.dob','users.gender', 'friend_user.status', 'friend_user.id', 'friend_user.user_id', 'friend_user.friend_id')
+            ->where('friend_id', $id)
+            ->get();
+
+        return $usersDetails;
+    }
+    // public function getUserPosts($id){
+    //     // return FriendUser::all()->where('friend_id', $id);
+    //     $usersDetails = DB::table('users')
+    //         ->join('posts', 'users.id', '=', 'posts.user_id')// joining the contacts table , where user_id and contact_user_id are same
+    //         ->select('users.name', 'users.city','users.dob','users.gender', 'posts.*')
+    //         ->where('users.id', $id)
+    //         ->get();
+
+    //     return $usersDetails;
+    // }
+    public function getAllFriendRequets(){
+        return FriendUser::all();
+    }
+
+    public function deleteFromFriends($id)
+    {
+        return FriendUser::where('user_id',$id)->delete();;
+    }
+
+    public function acceptRequest($id, Request $request){
+        // DB::table('friend_user')
+        // ->where('id', $id)
+        // ->update([
+        //     'status'     => 1
+        // ]);
+
+        $friendUser = FriendUser::find($id);
+        $friendUser->update($request->all());
+        return $friendUser;
     }
 }
