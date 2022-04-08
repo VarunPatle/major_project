@@ -23,6 +23,10 @@ export class UserService {
     return this.httpClient.post<any>(this._loginUrl, data);
   }
 
+  searchUser(name:string){
+    return this.httpClient.get('http://localhost:8000/api/users/search/'+name);
+  }
 
+  
 
 }

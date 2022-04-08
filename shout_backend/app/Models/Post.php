@@ -16,4 +16,10 @@ class Post extends Model
         'description'
 
     ];
+    public function reports(){
+        return $this->hasMany(Report::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
