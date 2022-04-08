@@ -9,7 +9,7 @@
     <div class="d-flex">
       <button class="btn" routerLink="/contact"> Contact us</button>&nbsp;
 
-   <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/home"> Signup</button></div>
+   <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/register"> Signup</button></div>
    <ng-template #elseBlock><button class="btn" (click)="logout()"> Logout</button></ng-template><br>
 
 
