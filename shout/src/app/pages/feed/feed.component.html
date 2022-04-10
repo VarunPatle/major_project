@@ -1,11 +1,19 @@
-<form class="container" [formGroup]="postsForm" method="post" >
-    <div class="form-group">
-      <label for="exampleInputEmail1">Description :</label>
-      <input type="text" class="form-control" id="description" formControlName="description" [(ngModel)]="description">
-    </div><br>
-    <div class="form-group">
-        <img [src]="imagePath" *ngIf="imagePath" style="height: 300px; width:500px">
-      <input type="file" class="form-control" accept="image/*" id="image"  formControlName="image" (change)="onFileChange($event)" [(ngModel)]="image">
-    </div><br>
-    <button class="btn btn-primary" (click)="onUpload()">Post</button>
-  </form>
+
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-1">
+      <form #imageForm = ngForm (ngSubmit)="onSubmit(description,image)"> 
+        <div class="row">
+          <div class="input-field col">
+            
+            <label for="Description">Description:</label><br>
+            <input type="text" #description ngModel name="description" id="description">
+          </div><br>
+        </div><br>
+        <img [src]="imagePath1" *ngIf="imagePath" style="height: 300px; width:500px">
+          <input type="file" #image accept="image/*" (change)="handleFileInput($event)">&nbsp;
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

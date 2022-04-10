@@ -21,7 +21,12 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-        
+            
+                // $completeFileName = $request->file('image')->getClientOriginalName();
+                // $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
+                // $extension = $request->file('image')->getClientOriginalExtension();
+                // $image = str_replace(' ', '_', $fileNameOnly).'-'.rand() . '_'.time(). '.'.$extension;
+           // return $request;
         $image =time() . "_" . $request->file('image')->getClientOriginalName();
         $request->file('image')->move('public/images/',$image);
         $photo = new Post();
