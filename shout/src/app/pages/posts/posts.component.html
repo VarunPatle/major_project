@@ -15,7 +15,7 @@
       <p>{{ post.description }}</p>
       <div>
         <br />
-        <form #userForm="ngForm" (ngSubmit)="addReport(userForm, post.id)">
+        <form #userForm="ngForm" (ngSubmit)="addReport(userForm, post.id, post.user_id)">
           <div class="input-group mb">
             <input
               type="text"

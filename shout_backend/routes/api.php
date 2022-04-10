@@ -80,7 +80,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 // Route::resource('posts',PostController::class);
 
 Route::post('/reports', [ReportController::class, 'store']);
-
+Route::get('/reports', [ReportController::class, 'index']);
 
 
 
