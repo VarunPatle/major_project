@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   token:any;
   user:any;
-  logged:string = 'signup';
+  isLoggedin:boolean;
   email: string = "";
   password: string = "";
 
@@ -30,17 +30,18 @@ export class LoginComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    this.sharedService.isLoggedin.subscribe(isLoggedin => this.isLoggedin = isLoggedin);
   }
   onSubmit() {
     this.submitted=true;
     this.userService.login(this.loginForm.value).subscribe(res => {
-      
+
       if(res!=0){
+        this.sharedService.setLogin(true);
         this.user = res.user;
         this.token = res.token
         sessionStorage.setItem('user', JSON.stringify(this.user));
         sessionStorage.setItem('token', this.token);
-        this.sharedService.setValue(true);
         this.router.navigate(['main']);
       }else{
         alert("Please enter correct email and password...");

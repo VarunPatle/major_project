@@ -100,6 +100,7 @@ class UserController extends Controller
         $friends = User::find($id)->friends;
         $user_friends_id = $friends->pluck('friend_id')->toArray();
 
+
         // $posts= User::find($id)->posts;
 
         //$user_id = $posts->pluck('user_id')->toArray();
@@ -114,6 +115,7 @@ class UserController extends Controller
         ->whereIn('posts.user_id', $user_id)
         ->get();
          return $usersDetails;
+
 
 
     }
@@ -139,6 +141,7 @@ class UserController extends Controller
 
         return $usersDetails;
     }
+
     // public function getUserPosts($id){
     //     // return FriendUser::all()->where('friend_id', $id);
     //     $usersDetails = DB::table('users')
@@ -149,6 +152,7 @@ class UserController extends Controller
 
     //     return $usersDetails;
     // }
+
     public function getAllFriendRequets(){
         return FriendUser::all();
     }

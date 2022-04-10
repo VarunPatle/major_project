@@ -69,7 +69,7 @@ Route::put('/posts/{id}', [PostController::class, 'update']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    
+
 
 });
 // Route::resource('post',PostController::class);

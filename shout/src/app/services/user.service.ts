@@ -26,6 +26,10 @@ export class UserService {
     return this.httpClient.get('http://127.0.0.1:8000/friends/user/'+id);
   }
 
+  searchUser(name:string){
+    return this.httpClient.get('http://localhost:8000/api/users/search/'+name);
+  }
 
+  
 
 }

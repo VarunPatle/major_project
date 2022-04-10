@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->date('dob');
+            $table->boolean('authenticated')->default(false);
             $table->string('gender');
             $table->string('city');
             $table->rememberToken();
