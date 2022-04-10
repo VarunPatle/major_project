@@ -21,7 +21,6 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-
         $image =time() . "_" . $request->file('image')->getClientOriginalName();
         $request->file('image')->move('public/images/',$image);
         $photo = new Post();
