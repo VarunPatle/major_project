@@ -23,6 +23,13 @@ class AdminController extends Controller
          return view('admin1', compact('users','posts')); 
        
     }
+    public function index2()
+    {
+        $users = User::all();
+        $posts = Post::all();
+         return view('view', compact('users','posts')); 
+       
+    }
 
     
 

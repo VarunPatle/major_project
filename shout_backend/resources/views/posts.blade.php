@@ -123,7 +123,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>All Users</h3>
+                            <h3>All Posts</h3>
 
                             <button>See all <span class="las la-arrow-right">
                             </span></button>
