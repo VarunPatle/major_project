@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
+
+  imagePath = "../../../assets/shouts/home.png" ;
   signupForm:FormGroup;
     name:string="";
     gender:string="";
@@ -23,11 +25,6 @@ export class RegisterComponent implements OnInit {
     city:string="";
     submitted=false;
     form:any;
-
-  imagePath = "assets/shouts/login.png"
-
-
-
   ngOnInit(): void {
   }
   constructor(private formBuilder:FormBuilder, private UserService: UserService, private router: Router){

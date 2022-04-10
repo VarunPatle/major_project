@@ -13,6 +13,7 @@ import { FriendsComponent } from './pages/friends/friends.component';
 import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 import { FeedComponent } from './pages/feed/feed.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     { path: '', component: PostsComponent },
     { path: 'friends', component: FriendsComponent },
     { path: 'requests', component: FriendRequestsComponent },
-    { path: 'feed', component: FeedComponent }
+    { path: 'feed', component: FeedComponent },
+    
   ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
