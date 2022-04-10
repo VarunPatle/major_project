@@ -50,9 +50,10 @@ class AuthController extends Controller
 
         $user = User::where('email', $fields['email'])->first();
 
-        if(!$user || !Hash::check($fields['password'], $user->password)){
+        if(!$user || !Hash::check($fields['password'], $user->password) || $user->authenticated == 0){
             return 0;
         }
+
 
 
         $token = $user->createToken('myapptoken')->plainTextToken;

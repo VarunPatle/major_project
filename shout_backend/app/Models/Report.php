@@ -9,6 +9,6 @@ class Report extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id', 'post_id', 'issue'
+        'reporter_user', 'reported_user', 'post_id', 'issue'
     ];
 }

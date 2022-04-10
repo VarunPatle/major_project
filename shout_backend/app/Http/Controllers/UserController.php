@@ -77,8 +77,13 @@ class UserController extends Controller
         return User::find($id)->getPosts;
     }
 
-    // public function getFriendsByUser($id){
-    //     // $ids = User::find($id)->getFriends;
+    public function getFriendsByUser($id){
+        return User::find($id)->getFriends;
+        // $users =DB::table('users')
+        // ->join('friends','friends.friend_id', '=', 'user.user_id')
+        // ->where('user_id',$id)
+        // ->where('friends.status', -> '1')
+        // ->get();
     //     $posts = DB::table('posts')
     //     ->join('friends', 'friends.friend_id', '=', 'posts.user_id')
     //     ->join('users', 'friends.user_id', '=', 'users.id')
@@ -86,7 +91,7 @@ class UserController extends Controller
     //     ->get();
 
     // return $posts;
-    // }
+    }
     // friends
 
 

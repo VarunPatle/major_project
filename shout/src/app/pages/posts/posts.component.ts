@@ -34,13 +34,17 @@ export class PostsComponent implements OnInit {
 
     })
   }
-  addReport(reportForm: NgForm, pId: number){
+  addReport(reportForm: NgForm, pId: number, reported:number){
     const data = {
-      user_id: this.userId,
+      reported_user:reported,
+      reporter_user:this.userId,
       post_id: pId,
       issue: reportForm.value.issue
     }
-    this.report.addReport(data).subscribe(res => console.log(res));
+    this.report.addReport(data).subscribe(res =>{
+      console.log(res);
+      reportForm.reset();
+    });
   }
 
   }

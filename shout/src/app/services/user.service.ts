@@ -22,11 +22,16 @@ export class UserService {
   login(data:any){
     return this.httpClient.post<any>(this._loginUrl, data);
   }
+  getFrindsOfUser(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/friends/user/'+id);
+  }
 
   searchUser(name:string){
     return this.httpClient.get('http://localhost:8000/api/users/search/'+name);
   }
 
-  
+  getAllUsers(){
+    return this.httpClient.get('http://localhost:8000/api/users');
+  }
 
 }
