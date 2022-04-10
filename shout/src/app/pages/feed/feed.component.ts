@@ -12,29 +12,20 @@ import { Router } from '@angular/router';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent {
 
   files:any
   fileToUpload : any;
   imagePath = 'http://127.0.0.1:8000/public/images/';
   imagePath1 = "../../../assets/shouts/upload.png" ;
-  
+
   constructor(private postService: PostService, private userService: UserService, private formBuilder: FormBuilder) {
 
 
-    this.postsForm = formBuilder.group({
-      description: new FormControl(),
-      image: new FormControl(),
-
-
 
   }
 
-  ngOnInit(): void {
-    // var user = JSON.parse(sessionStorage.user);
-    // this.id = user.id;
-    
-  }
+
   handleFileInput(event:any){
     this.fileToUpload =event.target.files[0];
     console.log(this.fileToUpload)
@@ -50,11 +41,11 @@ export class FeedComponent implements OnInit {
         console.log(data);
         description.value = null;
         image.value =null;
-        
+
       }
     )
   }
 
 
 
-
+}
