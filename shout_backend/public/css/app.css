@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 :root{
-    --main-color:#DD2F6E;
+    --main-color:#493d42;
     --color-dark:#1D2231;
     --text-grey:black
 
@@ -198,7 +198,9 @@ main {
     grid-gap: 2rem;
     margin-top: 1rem;
 }
-
+.table{
+    width: 70vw;
+}
 .card-single {
     display: flex;
     justify-content: space-between;

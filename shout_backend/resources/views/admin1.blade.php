@@ -114,138 +114,87 @@
                                 </span></button>
                         </div>
                         <div class="card-body">
-<<<<<<< HEAD
                             <div class="table-responsive">
-                                <table width="100%">
+                                <table width="100%" class="table">
                                     <thead>
                                         <tr>
+                                            <th scope="col">#</th>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Joined At</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Created At</th>
+                                            <th scope="col">Activity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if (count($users) != 0)
                                             @foreach ($users as $user)
                                                 <tr>
+                                                    <th scope="row">{{ $user->id }}</th>
                                                     <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->created_at }}</td>
-                                                    <td><a href='delete/{{ $user->id }}'><button type="button"
-                                                                class="btn btn-danger">Delete</button></a></td>
-                                                    </td>
-                                                    <td><a href='auth/{{ $user->id }}'><button type="button"
-                                                        class="btn btn-danger">Authenticate</button></a></td>
-                                                    </td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->gender }}</td>
+                                                    <td>{{ $user->updated_at }}</td>
+                                                    <td>
+                                                        <form action="{{ route('user.destroy', $user->id) }}"
+                                                            method="post" style="display: inline-block">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger btn-sm"
+                                                                type="submit">Delete</button>
+                                                        </form>
+                                                        <form action="{{ route('user.update', $user->id) }}"
+                                                            method="post" style="display: inline-block">
+                                                            @csrf
+                                                            @method('PATCH')
 
-                                                </tr>
-                                            @endforeach
+                                                            @if ($user->authenticated == false)
+                                                            <button class="btn btn-primary btn-sm" type="submit">Approve</button>
+                                                            @else
+                                                            <button class="btn btn-secondary btn-sm" disabled type="submit">Approved</button>
+                                                            @endif
+                                            </form>
+                                            </td>
+                                            </td>
+
+                                            </tr>
+                                        @endforeach
                                         @endif
-
                                     </tbody>
                                 </table>
                             </div>
-=======
-                           <div class="table-responsive">
-                            <table width="100%">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Activity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                              @if (count($users)!= 0)
-                              @foreach ($users as $user)
-                             <tr>
-                                    <th scope="row">{{ $user->id }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->gender }}</td>
-                                    <td>{{ $user->updated_at }}</td>
-                                   <td><form action="{{ route('user.destroy', $user->id)}}" method="post" style="display: inline-block">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                  </form>
-                  <form action="{{ route('user.update', $user->id)}}" method="post" style="display: inline-block">
-                    @csrf
-                    @method('PATCH')
-                    <button class="btn btn-danger btn-sm" type="submit">Approved</button>
-                  </form>
-                                  </td>
-                                   </td> 
-
-                              </tr>
-                               @endforeach
-                               @endif
-                              </tbody>
-                            </table>
-                           </div>
->>>>>>> ac0b4b6983abcbaac8d7a9af37d356934140c335
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="customers">
                     <div class="card">
                         <div class="card-header">
                             <h3>All Posts</h3>
-
-                            <button>See all <span class="las la-arrow-right">
-
-                                </span></button>
                         </div>
                         <div class="card-body">
-<<<<<<< HEAD
                             <div class="row">
                                 <div class="table-responsive">
-                                    <table width="100%">
+                                    <table width="100%" class="table">
                                         <thead class="table-dark">
                                             <tr>
-=======
-                        <div class="row">
-                          <div class="table-responsive">
-                               <table width="100%">
-                               <thead class="table-dark">
-                                     <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">Posts</th>
-                                          <th scope="col">Created_At</th>
-                                          <th scope="col">Status</th>
-                                     </tr>
-                                </thead>
-                        <tbody>
-                            @if (count($posts)!= 0)
-                            @foreach ($posts as $post)
-                        <tr>
-                             <th scope="row">{{ $post->id }}</th>
-                            <td>{{ $post->description }}</td>
-        <td>{{ $post->created_at }}</td>
-        <td><a href = 'delete1/{{ $post->id }}'><button type="button" class="btn btn-danger">Delete</button></a>
-        </a></td>
-        
->>>>>>> ac0b4b6983abcbaac8d7a9af37d356934140c335
-
-                                                <th scope="col">#</th>
+                                                <th></th>
                                                 <th scope="col">Posts</th>
                                                 <th scope="col">Created_At</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @if (count($posts) != 0)
                                                 @foreach ($posts as $post)
                                                     <tr>
-
-                                                        <th scope="row">{{ $post->id }}</th>
+                                                        <td></td>
                                                         <td>{{ $post->description }}</td>
                                                         <td>{{ $post->created_at }}</td>
                                                         <td><a href='delete1/{{ $post->id }}'><button type="button"
-                                                                    class="btn btn-danger">Delete</button></a>
-                                                            </a></td>
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </a>
+                                                        </td>
 
 
                                                     </tr>

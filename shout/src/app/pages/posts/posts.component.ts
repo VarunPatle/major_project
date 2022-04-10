@@ -1,5 +1,7 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-posts',
@@ -13,7 +15,7 @@ export class PostsComponent implements OnInit {
   user:any;
   userId:number;
   userName:any;
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private report: ReportsService) { }
 
   ngOnInit(): void {
     var user = JSON.parse(sessionStorage.user);
@@ -32,7 +34,14 @@ export class PostsComponent implements OnInit {
 
     })
   }
-
+  addReport(reportForm: NgForm, pId: number){
+    const data = {
+      user_id: this.userId,
+      post_id: pId,
+      issue: reportForm.value.issue
+    }
+    this.report.addReport(data).subscribe(res => console.log(res));
+  }
 
   }
 

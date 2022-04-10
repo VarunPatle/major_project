@@ -23,7 +23,7 @@ class AdminController extends Controller
         $users = User::all();
         $posts = Post::all();
         $postCount = Post::count();
-         return view('admin1', compact('users','posts', 'userCount', 'postCount'));
+        return view('admin1', compact('users','posts', 'userCount', 'postCount'));
 
     }
     public function authUser(Request $request, $id)
@@ -53,10 +53,10 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         // $user = User::find($id);
-       
+
        DB::table('users')->where('id',$id)
         ->update(['authenticated' => 1 ]);
-        
+
         return redirect('/user');
 
     }

@@ -41,7 +41,7 @@ Route::get('/getPosts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/user/{id}', [UserController::class, 'getPostsByUser']);
 Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']);
-Route::get('/posts/getImages', [PostController::class, 'getImages']);
+Route::get('/posts/getImages/{id}', [PostController::class, 'getImages']);
 Route::get('/posts/{id}', [PostController::class, 'destroy']);
 Route::get('/posts/getUsersPost/{id}', [UserController::class, 'getUserPosts']);
 
@@ -75,9 +75,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 // Route::resource('post',PostController::class);
 // Route::resource('friends', FriendController::class);
-Route::resource('comments', CommentController::class);
-Route::resource('reports', ReportController::class);
+// Route::resource('comments', CommentController::class);
+// Route::resource('reports', ReportController::class);
 // Route::resource('posts',PostController::class);
+
+Route::post('/reports', [ReportController::class, 'store']);
 
 
 

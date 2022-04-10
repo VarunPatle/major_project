@@ -76,15 +76,15 @@ class PostController extends Controller
     public function search($name){
         return Post::where('name', 'like', '%'.$name.'%')->get();
     }
-    public function getImages(){
-        $path='/home/snehajad/Desktop/Project/newFolder/major_project/shout_backend/storage/app/public/images/';
-        $post = DB::table('posts')
-        ->select('image','description')
-        ->get();
-        return $post;
-        // $post = Post::find($id);
-        // $image=$post->image;
-        // return response()->download($path.$image);
+    public function getImages($id){
+        $path='/home/varunpa/major_project/shout_backend/public/public/images/';
+        // $post = DB::table('posts')
+        // ->select('image','description')
+        // ->get();
+        //return $post;
+        $post = Post::find($id);
+        $image=$post->image;
+        return response()->download($path.$image);
 
     }
 

@@ -35,52 +35,52 @@ export class FeedComponent implements OnInit {
     var user = JSON.parse(sessionStorage.user);
     this.id = user.id;
   }
-  // addPost() {
-  //   const data = {
-  //     user_id: this.id,
-  //     image: this.image,
-  //     description: this.description
-  //   }
-  //   console.log(data)
-  //   this.postService.postFeed(data).subscribe(res => {
-  //        console.log(res);
-  //     // alert("user registered..")
+//   // addPost() {
+//   //   const data = {
+//   //     user_id: this.id,
+//   //     image: this.image,
+//   //     description: this.description
+//   //   }
+//   //   console.log(data)
+//   //   this.postService.postFeed(data).subscribe(res => {
+//   //        console.log(res);
+//   //     // alert("user registered..")
 
-  //   })
-  // }
-  // onChange(event:any) {
-  //   this.file = event.target.files[0];
-//}
-onUpload() {
-  this.loading = !this.loading;
-  const data = {
-        user_id: this.id,
-        image: this.image,
-        description: this.description
-      }
-  console.log(data);
-  this.postService.postFeed(data).subscribe(res => {
-       console.log(res);
-  });
+//   //   })
+//   // }
+//   // onChange(event:any) {
+//   //   this.file = event.target.files[0];
+// //}
+// onUpload() {
+//   this.loading = !this.loading;
+//   const data = {
+//         user_id: this.id,
+//         image: this.image,
+//         description: this.description
+//       }
+//   console.log(data);
+//   this.postService.postFeed(data).subscribe(res => {
+//        console.log(res);
+//   });
 
-}
-onFileChange(event: any) {
-    //console.log(event)
-   //this.image=event.target.files[0];
-    const reader = new FileReader();
-    if (event.target.files && event.target.files.length) {
-    const [file] = event.target.files;
-          reader.readAsDataURL(file);
-          reader.onload = () => {
-          this.imagePath = reader.result as string;
-          this.postsForm.patchValue({
+// }
+// onFileChange(event: any) {
+//     //console.log(event)
+//    //this.image=event.target.files[0];
+//     const reader = new FileReader();
+//     if (event.target.files && event.target.files.length) {
+//     const [file] = event.target.files;
+//           reader.readAsDataURL(file);
+//           reader.onload = () => {
+//           this.imagePath = reader.result as string;
+//           this.postsForm.patchValue({
 
-          fileSource: reader.result
+//           fileSource: reader.result
 
-        });
-};
-}
-}
+//         });
+// };
+// }
+// }
 }
 
 

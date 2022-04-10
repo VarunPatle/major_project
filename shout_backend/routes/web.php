@@ -31,7 +31,7 @@ Route::get('/reports{id}', function () {
     return view('welcome');
 });
 Route::get('/reports-on-post/{id}', [PostController::class, 'getReports']);
-Route::resource('reports', ReportController::class);
+
 
 Route::get('/users-count', [AdminController::class, 'countUser']);
 Route::put('/auth/{id}', [AdminController::class, 'authUser']);
