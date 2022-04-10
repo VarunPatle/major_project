@@ -20,6 +20,8 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { FriendsComponent } from './pages/friends/friends.component';
 import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 import { FeedComponent } from './pages/feed/feed.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import { FeedComponent } from './pages/feed/feed.component';
     FriendsComponent,
     FriendRequestsComponent,
     FeedComponent,
-    
+
 
   ],
   imports: [
@@ -48,8 +50,9 @@ import { FeedComponent } from './pages/feed/feed.component';
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+    ToastrModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

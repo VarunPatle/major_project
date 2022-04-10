@@ -20,22 +20,30 @@ use App\Http\Controllers\AdminController;
 // });
 // Route::get('/post', function () {
 //     return view('posts');
-// });
+Route::get('/', function () {
+    return redirect('/user');
+});
 
 // Route::get('/', [AdminController::class, 'index']);
 
 Route::get('/delete/{id}', [AdminController::class, 'destroy']);
 Route::get('/delete1/{id}', [AdminController::class, 'destroy1']);
+Route::get('/delete2/{id}', [AdminController::class, 'destroy2']);
 Route::put('/users/{id}', [AdminController::class, 'update']);
 Route::get('/post', [AdminController::class, 'index2']);
-Route::resource('user',AdminController::class);
 
-// Route::get('/post',[PostController::class,'create']);
-// Route::post('/post',[PostController::class,'storeImage']);
-// Route::get('/getImage',[PostController::class,'getImage']);
+Route::get('/report', [AdminController::class, 'index3']);
+Route::resource('user',AdminController::class);
+// Route::resource('post',AdminController::class);
+// Route::resource('report',AdminController::class);
+
 Route::get('/reports{id}', function () {
     return view('welcome');
 });
 Route::get('/reports-on-post/{id}', [PostController::class, 'getReports']);
-Route::resource('reports', ReportController::class);
+
 // Route::resource('post', AdminController::class);
+
+
+Route::get('/users-count', [AdminController::class, 'countUser']);
+Route::put('/auth/{id}', [AdminController::class, 'authUser']);

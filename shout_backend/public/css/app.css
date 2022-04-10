@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 :root{
-    --main-color:#DD2F6E;
+    --main-color:#493d42;
     --color-dark:#1D2231;
-    --text-grey:#8390A2
+    --text-grey:black
 
 }
 
@@ -29,11 +29,11 @@
 }
 
 .nav-brand{
-    
+
         font-family: 'Pacifico', cursive;
         color:white;
         font-size: 22px;
-    
+
 }
 
 .nav-brand p{
@@ -107,7 +107,7 @@
  #nav-toggle:checked ~ .main-content {
     margin-left: 70px;
  }
- 
+
  #nav-toggle:checked ~ .main-content header {
     width: calc(100% - 70px);
     left: 70px;
@@ -189,7 +189,7 @@ main {
     padding: 2rem 1.5rem;
     background: #f1f5f9;
     min-height: calc(100vh - 90px);
-    
+
 }
 
 .cards {
@@ -198,7 +198,9 @@ main {
     grid-gap: 2rem;
     margin-top: 1rem;
 }
-
+.table{
+    width: 70vw;
+}
 .card-single {
     display: flex;
     justify-content: space-between;
@@ -348,46 +350,46 @@ tr td:last-child {
     .sidebar {
         width: 70px;
      }
-     
+
     .sidebar .sidebar-brand,
     .sidebar li {
          padding-left: 1rem;
          text-align: center;
       }
-     
+
     .sidebar li a {
          padding-left: 0rem;
       }
-     
+
     .sidebar .sidebar-brand h2 span:last-child,
     .sidebar li a span:last-child {
          display: none;
       }
-     
+
     .main-content {
          margin-left: 70px;
       }
-      
+
     .main-content header {
          width: calc(100% - 70px);
          left: 70px;
-      } 
+      }
 
       .sidebar:hover {
         width: 345px;
         z-index: 200;
      }
-     
+
     .sidebar:hover .sidebar-brand,
     .sidebar:hover li {
          padding-left: 2rem;
          text-align: left;
       }
-     
+
     .sidebar:hover li a {
          padding-left: 1rem;
       }
-     
+
     .sidebar:hover .sidebar-brand h2 span:last-child,
     .sidebar:hover li a span:last-child {
          display: inline;
@@ -466,22 +468,22 @@ tr td:last-child {
         z-index: 100;
         width: 345px;
     }
-     
+
     #nav-toggle:checked + .sidebar .sidebar-brand,
     #nav-toggle:checked + .sidebar li {
          padding-left: 2rem;
          text-align: left;
       }
-     
+
     #nav-toggle:checked + .sidebar:hover li a {
          padding-left: 1rem;
       }
-     
+
     #nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
     #nav-toggle:checked + .sidebar li a span:last-child {
          display: inline;
       }
-    
+
       #nav-toggle:checked ~ .main-content {
           margin-left: 0rem !important;
       }

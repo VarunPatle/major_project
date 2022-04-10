@@ -34,8 +34,17 @@ class PostController extends Controller
             "message"=>"file uploaded",
             "image"=>$image
         ]);
-        // return Post::create($request->all());
-    //    return $name;
+        return Post::create($request->all());
+       return $name;
+
+            // $post = new Post;
+            // if($request->hasFile('image')){
+            //     $completeFileName = $request->file('image')->getClientOriginalName();
+            //     $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
+            //     $extension = $request->file('image')->getClientOriginalExtension();
+            //     $compPic = str_replace(' ', '_', $fileNameOnly).'-'.rand() . '_'.time(). '.'.$extension;
+            //     $path = $request->file('image')->storeAs('public/images', $compPic);
+            // }
     }
 
 
@@ -67,15 +76,15 @@ class PostController extends Controller
     public function search($name){
         return Post::where('name', 'like', '%'.$name.'%')->get();
     }
-    public function getImages(){
-        $path='/home/snehajad/Desktop/Project/newFolder/major_project/shout_backend/storage/app/public/images/';
-        $post = DB::table('posts')
-        ->select('image','description')
-        ->get();
-        return $post;
-        // $post = Post::find($id);
-        // $image=$post->image;
-        // return response()->download($path.$image);
+    public function getImages($id){
+        $path='/home/varunpa/major_project/shout_backend/public/public/images/';
+        // $post = DB::table('posts')
+        // ->select('image','description')
+        // ->get();
+        //return $post;
+        $post = Post::find($id);
+        $image=$post->image;
+        return response()->download($path.$image);
 
     }
 
