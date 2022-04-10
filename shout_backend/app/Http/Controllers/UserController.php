@@ -94,8 +94,23 @@ class UserController extends Controller
     public function getFriendsPosts($id){
         $friends = User::find($id)->friends;
         $user_friends_id = $friends->pluck('friend_id')->toArray();
-        $posts = Post::whereIn('user_id', $user_friends_id)->get();
-        return $posts;
+
+
+        // $posts= User::find($id)->posts;
+
+        //$user_id = $posts->pluck('user_id')->toArray();
+
+        $posts = Post::whereIn('user_id',$user_friends_id)->get();
+        $user_id = $posts->pluck('user_id')->toArray();
+        // $user_id = $posts->pluck('user_id')->toArray();
+
+        $usersDetails = DB::table('users')
+        ->join('posts', 'users.id', '=', 'posts.user_id')// joining the contacts table , where user_id and contact_user_id are same
+        ->select('users.name', 'users.city','users.dob','users.gender','posts.id','posts.user_id','posts.description','posts.image','posts.created_at')
+        ->whereIn('posts.user_id', $user_id)
+        ->get();
+         return $usersDetails;
+
 
 
     }
@@ -121,6 +136,18 @@ class UserController extends Controller
 
         return $usersDetails;
     }
+
+    // public function getUserPosts($id){
+    //     // return FriendUser::all()->where('friend_id', $id);
+    //     $usersDetails = DB::table('users')
+    //         ->join('posts', 'users.id', '=', 'posts.user_id')// joining the contacts table , where user_id and contact_user_id are same
+    //         ->select('users.name', 'users.city','users.dob','users.gender', 'posts.*')
+    //         ->where('users.id', $id)
+    //         ->get();
+
+    //     return $usersDetails;
+    // }
+
     public function getAllFriendRequets(){
         return FriendUser::all();
     }

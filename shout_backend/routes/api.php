@@ -36,12 +36,13 @@ Route::get('/friendRequest', [UserController::class, 'getAllFriendRequets']);
 Route::delete('/friendsTable/{id}', [UserController::class, 'deleteFromFriends']);
 Route::put('/accept/{id}', [UserController::class, 'acceptRequest']);
 // Posts
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/getPosts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/user/{id}', [UserController::class, 'getPostsByUser']);
 Route::get('/posts/user_friend/{id}', [UserController::class, 'getFriendsPosts']);
 Route::get('/posts/getImages', [PostController::class, 'getImages']);
 Route::get('/posts/{id}', [PostController::class, 'destroy']);
+Route::get('/posts/getUsersPost/{id}', [UserController::class, 'getUserPosts']);
 
 
 
@@ -54,9 +55,8 @@ Route::get('/posts/{id}', [PostController::class, 'destroy']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // posts
-Route::post('/posts', [PostController::class, 'store']);
+//Route::post('/posts', [PostController::class, 'store']);
 Route::put('/posts/{id}', [PostController::class, 'update']);
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
