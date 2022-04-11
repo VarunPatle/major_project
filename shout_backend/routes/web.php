@@ -32,7 +32,8 @@ Route::get('/delete2/{id}', [AdminController::class, 'destroy2']);
 Route::put('/users/{id}', [AdminController::class, 'update']);
 Route::get('/post', [AdminController::class, 'index2']);
 
-Route::get('/report', [AdminController::class, 'index3']);
+Route::get('/reports', [ReportController::class, 'index']);
+Route::get('/delete/{id}', [ReportController::class, 'destroy']);
 Route::resource('user',AdminController::class);
 // Route::resource('post',AdminController::class);
 // Route::resource('report',AdminController::class);

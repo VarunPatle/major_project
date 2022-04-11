@@ -58,7 +58,7 @@
                     </span></a>
                 </li>
                 <li>
-                    <a href="{{URL::to('report')}}"><span class="fas fa-edit"></span><span>
+                    <a href="{{URL::to('reports')}}"><span class="fas fa-edit"></span><span>
                            Reports
                         </span></a>
                 </li>
@@ -108,6 +108,15 @@
                         <span class="las la-clipboard-list"></span>
                     </div>
                 </div>
+                <div class="card-single">
+                    <div>
+                        <h1>{{ $reportCount }}</h1>
+                        <span>Reports</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-edit"></span>
+                    </div>
+                </div>
 
             </div>
                
@@ -123,9 +132,10 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <th></th>
-                                                <th scope="col">#</th>
-                                                <th scope="col">User Name</th>
-                                                <th scope="col">Post id</th>
+                                                <th scope="col">Reporter</th>
+                                                <th scope="col">Reported user id</th>
+                                                <th scope="col">On post id</th>
+                                                <th scope="col">Issue</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -134,11 +144,12 @@
                                                 @foreach ($reports as $report)
                                                     <tr>
                                                         <td></td>
-                                                        <td>{{ $report->id }}</td>
-                                                        <td>{{ $report->user_id }}</td>
+                                                        <td>{{ $report->name }}</td>
+                                                        
+                                                        <td>{{ $report->reported_user }}</td>
                                                         <td>{{ $report->post_id }}</td>
                                                         <td>{{ $report->issue }}</td>
-                                                        <td><a href='delete1/{{ $report->id }}'><button type="button"
+                                                        <td><a href='delete/{{ $report->id }}'><button type="button"
                                                                     class="btn btn-danger">Delete</button>
                                                             </a>
                                                         </td>

@@ -58,7 +58,7 @@
                     </span></a>
                 </li>
                 <li>
-                    <a href="{{URL::to('report')}}"><span class="fas fa-edit"></span><span>
+                    <a href="{{URL::to('reports')}}"><span class="fas fa-edit"></span><span>
                            Reports
                         </span></a>
                 </li>
@@ -108,6 +108,15 @@
                         <span class="las la-clipboard-list"></span>
                     </div>
                 </div>
+                <div class="card-single">
+                    <div>
+                        <h1>{{ $reportCount }}</h1>
+                        <span>Reports</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-edit"></span>
+                    </div>
+                </div>
 
             </div>
                
@@ -122,8 +131,10 @@
                                     <table width="100%" class="table">
                                         <thead class="table-dark">
                                             <tr>
-                                                <th></th>
-                                                <th scope="col">Posts</th>
+                                                
+                                                <th scope="col">Posted By</th>
+                                                <th scope="col">Post Id</th>
+                                                <th scope="col">Post Description</th>
                                                 <th scope="col">Created_At</th>
                                                 <th scope="col">Actions</th>
                                             </tr>
@@ -132,7 +143,8 @@
                                             @if (count($posts) != 0)
                                                 @foreach ($posts as $post)
                                                     <tr>
-                                                        <td></td>
+                                                        <td>{{ $post->name }}</td>
+                                                        <td>{{ $post->id }}</td>
                                                         <td>{{ $post->description }}</td>
                                                         <td>{{ $post->created_at }}</td>
                                                         <td><a href='delete1/{{ $post->id }}'><button type="button"

@@ -59,7 +59,7 @@
                     </span></a>
                 </li>
                 <li>
-                    <a href="{{URL::to('report')}}"><span class="fas fa-edit"></span><span>
+                    <a href="{{URL::to('reports')}}"><span class="fas fa-edit"></span><span>
                            Reports
                         </span></a>
                 </li>
@@ -109,6 +109,15 @@
                         <span class="las la-clipboard-list"></span>
                     </div>
                 </div>
+                <div class="card-single">
+                    <div>
+                        <h1>{{ $reportCount }}</h1>
+                        <span>Reports</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-edit"></span>
+                    </div>
+                </div>
 
             </div>
             <div class="recent-grid">
@@ -117,8 +126,7 @@
                         <div class="card-header">
                             <h3>All Users</h3>
 
-                            <button>See all <span class="las la-arrow-right">
-                                </span></button>
+                           
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
