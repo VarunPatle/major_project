@@ -27,11 +27,11 @@ const routes: Routes = [
     { path: 'friends', component: FriendsComponent },
     { path: 'requests', component: FriendRequestsComponent },
     { path: 'feed', component: FeedComponent },
-    
+   
   ]},
   // { path: 'main', component: HeaderComponent },
   { path: 'logout', component: HomeComponent },
-  
+ 
 
 
 

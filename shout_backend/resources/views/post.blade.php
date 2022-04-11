@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,70 +119,51 @@
                 </div>
 
             </div>
-            <div class="recent-grid">
-                <div class="projects">
+               
+                <div class="customers">
                     <div class="card">
                         <div class="card-header">
-                            <h3>All Users</h3>
-
-                           
+                            <h3>All Posts</h3>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table width="100%" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">Created At</th>
-                                            <th scope="col">Activity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if (count($users) != 0)
-                                            @foreach ($users as $user)
-                                                <tr>
-                                                    <th scope="row">{{ $user->id }}</th>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->gender }}</td>
-                                                    <td>{{ $user->updated_at }}</td>
-                                                    <td>
-                                                        <form action="{{ route('user.destroy', $user->id) }}"
-                                                            method="post" style="display: inline-block">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm"
-                                                                type="submit">Delete</button>
-                                                        </form>
-                                                        <form action="{{ route('user.update', $user->id) }}"
-                                                            method="post" style="display: inline-block">
-                                                            @csrf
-                                                            @method('PATCH')
-
-                                                            @if ($user->authenticated == false)
-                                                            <button class="btn btn-primary btn-sm" type="submit">Approve</button>
-                                                            @else
-                                                            <button class="btn btn-secondary btn-sm" disabled type="submit">Approved</button>
-                                                            @endif
-                                            </form>
-                                            </td>
-                                            </td>
-
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table width="100%" class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                
+                                                <th scope="col">Posted By</th>
+                                                <th scope="col">Post Id</th>
+                                                <th scope="col">Post Description</th>
+                                                <th scope="col">Created_At</th>
+                                                <th scope="col">Actions</th>
                                             </tr>
-                                        @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @if (count($posts) != 0)
+                                                @foreach ($posts as $post)
+                                                    <tr>
+                                                        <td>{{ $post->name }}</td>
+                                                        <td>{{ $post->id }}</td>
+                                                        <td>{{ $post->description }}</td>
+                                                        <td>{{ $post->created_at }}</td>
+                                                        <td><a href='delete1/{{ $post->id }}'><button type="button"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </a>
+                                                        </td>
+
+
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br>
-             
-                    <
         </main>
     </div>
 </body>

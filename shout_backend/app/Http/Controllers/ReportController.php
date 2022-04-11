@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use App\Models\Post;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,14 +11,21 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $report = DB::table('reports')
+        $userCount = User::count();
+        $postCount = Post::count();
+        $reportCount = Report::count();
+        $reports = DB::table('reports')
         ->join('users', 'reports.reporter_user', '=', 'users.id')// joining the contacts table , where user_id and contact_user_id are same
-        ->select('users.name', 'reports.issue', 'reports.reported_user', 'reports.post_id')
+        ->select('users.name', 'reports.id','reports.issue', 'reports.reported_user', 'reports.post_id')
         ->get();
-         return $report;
+         return view('report', compact('reports','userCount','postCount','reportCount'));
     }
 
-
+    public function destroy($id)
+    {
+        DB::delete('delete from reports where id = ?',[$id]);
+        return redirect('/reports');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,8 +58,5 @@ class ReportController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        return Report::destroy($id);
-    }
+    
 }
