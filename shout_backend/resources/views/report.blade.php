@@ -47,13 +47,19 @@
                         </span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-users"></span><span>
+                    <a href="{{URL::to('user')}}"><span class="las la-users"></span><span>
                             Users
                         </span></a>
                 </li>
                 <li>
-                    <a href="report"><span class="fas fa-edit"></span><span>
-                            Reports
+                <li>
+                <a href="{{URL::to('post')}}"><span class="las la-clipboard-list"></span><span>
+                       Posts
+                    </span></a>
+                </li>
+                <li>
+                    <a href="{{URL::to('reports')}}"><span class="fas fa-edit"></span><span>
+                           Reports
                         </span></a>
                 </li>
 
@@ -104,73 +110,11 @@
                 </div>
 
             </div>
-            <div class="recent-grid">
-                <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>All Users</h3>
-
-                            <button>See all <span class="las la-arrow-right">
-                                </span></button>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table width="100%" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">Created At</th>
-                                            <th scope="col">Activity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if (count($users) != 0)
-                                            @foreach ($users as $user)
-                                                <tr>
-                                                    <th scope="row">{{ $user->id }}</th>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->gender }}</td>
-                                                    <td>{{ $user->updated_at }}</td>
-                                                    <td>
-                                                        <form action="{{ route('user.destroy', $user->id) }}"
-                                                            method="post" style="display: inline-block">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm"
-                                                                type="submit">Delete</button>
-                                                        </form>
-                                                        <form action="{{ route('user.update', $user->id) }}"
-                                                            method="post" style="display: inline-block">
-                                                            @csrf
-                                                            @method('PATCH')
-
-                                                            @if ($user->authenticated == false)
-                                                            <button class="btn btn-primary btn-sm" type="submit">Approve</button>
-                                                            @else
-                                                            <button class="btn btn-secondary btn-sm" disabled type="submit">Approved</button>
-                                                            @endif
-                                            </form>
-                                            </td>
-                                            </td>
-
-                                            </tr>
-                                        @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
+              
                 <div class="customers">
                     <div class="card">
                         <div class="card-header">
-                            <h3>All Posts</h3>
+                            <h3>All Reports</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -179,19 +123,26 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <th></th>
-                                                <th scope="col">Posts</th>
-                                                <th scope="col">Created_At</th>
-                                                <th scope="col">Actions</th>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Reported id</th>
+                                                <th scope="col">User Name</th>
+
+                                                <th scope="col">post id</th>
+                                                <th scope="col">Issue</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (count($posts) != 0)
-                                                @foreach ($posts as $post)
+                                            @if (count($report) != 0)
+                                                @foreach ($reports as $report)
                                                     <tr>
                                                         <td></td>
-                                                        <td>{{ $post->description }}</td>
-                                                        <td>{{ $post->created_at }}</td>
-                                                        <td><a href='delete1/{{ $post->id }}'><button type="button"
+                                                        <td>{{ $report->id }}</td>
+                                                       
+                                                        <td>{{ $report->reported_user }}</td>
+                                                        <td>{{ $report-> name }}</td>
+                                                        <td>{{ $report->issue }}</td>
+                                                        <td><a href='delete1/{{ $report->id }}'><button type="button"
                                                                     class="btn btn-danger">Delete</button>
                                                             </a>
                                                         </td>

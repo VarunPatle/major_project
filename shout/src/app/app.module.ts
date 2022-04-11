@@ -22,6 +22,7 @@ import { FriendRequestsComponent } from './pages/friend-requests/friend-requests
 import { FeedComponent } from './pages/feed/feed.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { FeedComponent } from './pages/feed/feed.component';
     FriendsComponent,
     FriendRequestsComponent,
     FeedComponent,
-    
+
 
   ],
   imports: [
@@ -48,8 +49,9 @@ import { FeedComponent } from './pages/feed/feed.component';
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

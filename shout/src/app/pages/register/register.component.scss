@@ -17,6 +17,7 @@ button{
 width: 100%;
 }
 input{
+
   width: 100%;
   background-color: rgb(70,88,90);
   border-radius: 8px;
@@ -43,7 +44,7 @@ label,h2{
 }
 label:after{
   content:"*" ;
- color:red
+ color:red    
  }
 small{
   color: black;

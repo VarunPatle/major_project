@@ -30,25 +30,7 @@
 form{
   width: 100%;
 }
-.tile {
-  /* TODO: MODULE_CARDS */
-  /* 1. Fill in the required properties. */
-  justify-content: center;
-  overflow: hidden;
-  height: 100%;
-  max-width: 100%;
-}
-.tile img{
-  width: 100%;
-  object-fit: cover;
-}
-.tile img:hover {
-  /* TODO: MODULE_CARDS */
-  /* 1. Fill in the required properties. */
-  filter: brightness(50%);
-  cursor: pointer;
-  transform: scale(1);
-}
+
 
 .navbar{
   width: 100%;
@@ -64,6 +46,6 @@ form{
 .nav-link:hover{
   background-color: rgb(53, 48, 48);
 }
-ul{
-  margin-left: px;
+#ul{
+  margin-left: 40px;
 }

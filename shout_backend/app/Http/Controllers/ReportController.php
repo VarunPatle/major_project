@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ReportController extends Controller
 {
     public function index()
     {
-        return Report::all();
+        $userCount = User::count();
+        $postCount = Post::count();
+        $report = DB::table('reports')
+        ->join('users', 'reports.reporter_user', '=', 'users.id')// joining the contacts table , where user_id and contact_user_id are same
+        ->select('users.name', 'reports.issue', 'reports.reported_user', 'reports.post_id')
+        ->get();
+         return view('report', compact('report', 'userCount', 'postCount'));
     }
 
 
