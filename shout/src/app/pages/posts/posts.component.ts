@@ -43,6 +43,7 @@ export class PostsComponent implements OnInit {
     }
     this.report.addReport(data).subscribe(res =>{
       console.log(res);
+      alert("Reported to the admin..")
       reportForm.reset();
     });
   }

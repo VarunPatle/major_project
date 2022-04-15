@@ -41,6 +41,7 @@ export class FeedComponent {
         console.log(data);
         description.value = null;
         image.value =null;
+        alert("post added..!!")
 
       }
     )

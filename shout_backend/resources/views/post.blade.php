@@ -74,10 +74,7 @@
                 </label>
                 Dashboard
             </h2>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="search here" />
-            </div>
+
             <!-- <div class="user-wrapper">
                 <img src="img/2.jpeg" width="40px" height="40px" alt="">
                 <div>
@@ -119,7 +116,7 @@
                 </div>
 
             </div>
-               
+
                 <div class="customers">
                     <div class="card">
                         <div class="card-header">
@@ -131,7 +128,7 @@
                                     <table width="100%" class="table">
                                         <thead class="table-dark">
                                             <tr>
-                                                
+
                                                 <th scope="col">Posted By</th>
                                                 <th scope="col">Post Id</th>
                                                 <th scope="col">Post Description</th>

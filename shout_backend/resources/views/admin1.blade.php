@@ -75,10 +75,7 @@
                 </label>
                 Dashboard
             </h2>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="search here" />
-            </div>
+            
             <!-- <div class="user-wrapper">
                 <img src="img/2.jpeg" width="40px" height="40px" alt="">
                 <div>
@@ -126,7 +123,7 @@
                         <div class="card-header">
                             <h3>All Users</h3>
 
-                           
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -182,7 +179,7 @@
                     </div>
                 </div>
                 <br>
-             
+
                     <
         </main>
     </div>

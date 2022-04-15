@@ -74,10 +74,7 @@
                 </label>
                 Dashboard
             </h2>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="search here" />
-            </div>
+
             <!-- <div class="user-wrapper">
                 <img src="img/2.jpeg" width="40px" height="40px" alt="">
                 <div>
@@ -119,7 +116,7 @@
                 </div>
 
             </div>
-               
+
                 <div class="customers">
                     <div class="card">
                         <div class="card-header">
@@ -145,7 +142,7 @@
                                                     <tr>
                                                         <td></td>
                                                         <td>{{ $report->name }}</td>
-                                                        
+
                                                         <td>{{ $report->reported_user }}</td>
                                                         <td>{{ $report->post_id }}</td>
                                                         <td>{{ $report->issue }}</td>
